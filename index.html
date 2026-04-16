@@ -7,1206 +7,668 @@
     <title>Exomind Brain Wellness Treatment | WinMind Integrative Health</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Franklin:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Custom Properties */
         :root {
-            --color-brand-secondary: #003C17;
-            --color-brand-primary: #1B6738;
-            --color-brand-primary-hover: #155A2E;
-            --color-gold-accent: #B8860B;
-            --color-gold-light: #CF9F23;
-            --color-surface-primary: #F6F2E7;
-            --color-surface-secondary: #EBEBDE;
-            --color-nav-bar: #FBF9F3;
-            --color-text-primary: #003C17;
-            --color-text-secondary: rgba(0, 60, 23, 0.7);
-            --color-text-inverse: #FFFFFF;
-            --color-text-inverse-muted: rgba(255, 255, 255, 0.75);
-            --color-border-default: rgba(0, 60, 23, 0.1);
-            --color-border-inverse: rgba(255, 255, 255, 0.2);
+            --font-display: 'Spectral', Georgia, serif;
+            --font-body: 'Libre Franklin', system-ui, sans-serif;
 
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'Lato', sans-serif;
+            --clr-cream: #F5F1E8;
+            --clr-cream-dark: #EDE8DA;
+            --clr-cream-card: #FAF8F2;
+            --clr-white: #FDFCF9;
 
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 40px;
-            --spacing-xl: 60px;
-            --spacing-2xl: 100px;
+            --clr-green-deep: #003C17;
+            --clr-green-brand: #1B6738;
+            --clr-green-mid: #2A8048;
+
+            --clr-amber: #C49A2A;
+            --clr-amber-dark: #B8860B;
+            --clr-amber-muted: #C4A35A;
+
+            --clr-text: #003C17;
+            --clr-text-body: #3D5C4A;
+            --clr-text-muted: #6B8574;
+            --clr-text-inverse: #FDFCF9;
+            --clr-text-inverse-muted: rgba(253, 252, 249, 0.75);
+
+            --clr-border: rgba(0, 60, 23, 0.1);
+            --clr-border-card: rgba(0, 60, 23, 0.08);
+
+            --sp-4: 4px; --sp-8: 8px; --sp-12: 12px; --sp-16: 16px;
+            --sp-24: 24px; --sp-32: 32px; --sp-48: 48px; --sp-64: 64px; --sp-96: 96px;
+
+            --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --max-w: 1200px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 
         body {
             font-family: var(--font-body);
-            color: var(--color-text-primary);
-            background-color: #FFFFFF;
+            color: var(--clr-text);
+            background: var(--clr-cream);
+            overflow-x: hidden;
         }
 
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: var(--color-nav-bar);
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 60, 23, 0.15);
+        img { display: block; max-width: 100%; }
+        button { cursor: pointer; font-family: inherit; }
+        a { color: inherit; }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 clamp(var(--sp-24), 4vw, var(--sp-64));
         }
 
-        nav .logo {
-            display: flex;
-            align-items: center;
-            flex-shrink: 0;
-        }
-
-        nav .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        nav .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        nav .phone {
-            font-size: 14px;
-            color: var(--color-text-primary);
-            text-decoration: none;
+        /* ——— Typography ——— */
+        h1 {
+            font-family: var(--font-display);
             font-weight: 400;
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--clr-text-inverse);
+        }
+        h1 i { font-style: italic; font-weight: 300; }
+
+        h2 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            line-height: 1.18;
+            letter-spacing: -0.01em;
+            color: var(--clr-green-deep);
+        }
+        h2 i { font-style: italic; font-weight: 300; }
+
+        h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+            line-height: 1.3;
+            color: var(--clr-text);
         }
 
-        nav .phone:hover {
-            color: var(--color-brand-primary);
-        }
-
-        .btn-nav-cta {
-            background-color: var(--color-gold-accent);
-            color: #FFFFFF;
-            padding: 12px 24px;
-            border: none;
-            cursor: pointer;
+        p, .body-text {
             font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            border-radius: 0px;
-            box-shadow: 0 2px 4px rgba(27, 103, 56, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .btn-nav-cta:hover {
-            background-color: #FFFFFF;
-            color: var(--color-gold-accent);
-            box-shadow: 0 0 20px rgba(211, 183, 100, 0.5);
-        }
-
-        /* Main Content */
-        main {
-            margin-top: 70px;
-        }
-
-        /* Sections */
-        section {
-            padding: var(--spacing-2xl) 40px;
-        }
-
-        /* Center all section content except hero */
-        section:not(#hero):not(#map) > .eyebrow,
-        section:not(#hero):not(#map) > h2,
-        section:not(#hero):not(#map) > p {
-            text-align: center;
-        }
-
-        section:not(#hero):not(#map) > .eyebrow,
-        section:not(#hero):not(#map) > h2,
-        section:not(#hero):not(#map) > p,
-        section:not(#hero):not(#map) > .contact-container,
-        section:not(#hero):not(#map) > .google-rating {
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Shine on hover for elements after hero CTA */
-        .btn.gold {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn.gold::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -75%;
-            width: 50%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-25deg);
-            transition: none;
-        }
-
-        .btn.gold:hover::after {
-            animation: shine 0.6s ease forwards;
-        }
-
-        @keyframes shine {
-            0% { left: -75%; }
-            100% { left: 125%; }
-        }
-
-        .hero-trust-badge {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-trust-badge::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -75%;
-            width: 50%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transform: skewX(-25deg);
-        }
-
-        .hero-trust-badge:hover::after {
-            animation: shine 0.6s ease forwards;
-        }
-
-        /* Slick Quiz Radio Buttons */
-        .option-card {
-            border: 2px solid var(--color-border-default);
-            border-radius: 8px;
-            transition: all 0.25s ease;
-        }
-
-        .option-card input[type="radio"] {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(0, 60, 23, 0.3);
-            border-radius: 50%;
-            outline: none;
-            cursor: pointer;
-            position: relative;
-            vertical-align: middle;
-            margin-right: 10px;
-            transition: all 0.25s ease;
-        }
-
-        .option-card input[type="radio"]:checked {
-            border-color: var(--color-brand-primary);
-            background: var(--color-brand-primary);
-            box-shadow: inset 0 0 0 3px #FFFFFF;
-        }
-
-        .option-card:hover {
-            border-color: var(--color-brand-primary);
-            background-color: rgba(27, 103, 56, 0.03);
-        }
-
-        .option-card.selected {
-            border-color: var(--color-brand-primary);
-            background-color: rgba(27, 103, 56, 0.06);
-            box-shadow: 0 0 0 1px var(--color-brand-primary);
+            font-size: clamp(0.92rem, 1.05vw, 1.05rem);
+            line-height: 1.75;
+            color: var(--clr-text-body);
+            max-width: 62ch;
         }
 
         .eyebrow {
             font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--color-gold-accent);
-            margin-bottom: var(--spacing-md);
+            color: var(--clr-amber);
+            margin-bottom: var(--sp-16);
         }
 
-        h1 {
+        .section-subtitle {
             font-family: var(--font-display);
-            font-size: 70px;
-            font-weight: 400;
-            color: var(--color-brand-primary);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.2;
-        }
-
-        h1 i {
             font-style: italic;
-        }
-
-        h2 {
-            font-family: var(--font-display);
-            font-size: 50px;
             font-weight: 400;
-            line-height: 60px;
-            color: var(--color-brand-secondary);
-            margin-bottom: var(--spacing-lg);
+            font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+            color: var(--clr-amber-muted);
+            margin-bottom: var(--sp-24);
         }
 
-        h2 i {
+        /* Large serif number */
+        .num {
+            font-family: var(--font-display);
+            font-weight: 400;
             font-style: italic;
+            color: var(--clr-amber-muted);
         }
 
-        h2.white {
-            color: var(--color-text-inverse);
+        /* ——— Navigation ——— */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--clr-white);
+            padding: var(--sp-16) var(--sp-48);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--clr-border);
+            transition: box-shadow 0.4s var(--ease-out);
         }
+        nav.scrolled { box-shadow: 0 2px 20px rgba(0, 60, 23, 0.06); }
+        nav .logo { display: flex; align-items: center; }
+        nav .logo img { height: 38px; width: auto; }
+        nav .nav-right { display: flex; align-items: center; gap: var(--sp-24); }
 
-        h3 {
-            font-family: var(--font-display);
-            font-size: 32px;
-            font-weight: 400;
-            color: var(--color-text-primary);
-            margin-bottom: var(--spacing-md);
-        }
+        nav .phone { display: none; }
 
-        p {
-            font-family: var(--font-body);
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 1.7;
-            margin-bottom: var(--spacing-md);
-        }
-
-        p.white {
-            color: var(--color-text-inverse);
-        }
-
-        p.secondary {
-            color: var(--color-text-secondary);
-        }
-
-        /* Buttons */
-        .btn {
-            background-color: var(--color-brand-primary);
-            color: var(--color-text-inverse);
-            padding: 14px 36px;
+        .btn-nav {
+            background: var(--clr-green-deep);
+            color: var(--clr-text-inverse);
+            padding: var(--sp-12) var(--sp-24);
             border: none;
-            cursor: pointer;
-            font-family: var(--font-body);
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.6px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            border-radius: 0px;
-            box-shadow: 0 2px 4px rgba(27, 103, 56, 0.3);
-            transition: all 0.3s ease;
+            transition: all 0.3s var(--ease-out);
+        }
+        .btn-nav:hover { background: var(--clr-green-brand); transform: translateY(-1px); }
+
+        /* ——— Buttons ——— */
+        .btn {
             display: inline-block;
+            padding: var(--sp-16) var(--sp-32);
+            border: none;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             text-decoration: none;
             text-align: center;
+            transition: all 0.35s var(--ease-out);
         }
-
-        .btn:hover {
-            background-color: #FFFFFF;
-            color: var(--color-brand-primary);
-            box-shadow: 0 0 20px rgba(27, 103, 56, 0.5);
+        .btn-green {
+            background: var(--clr-green-deep);
+            color: var(--clr-text-inverse);
         }
+        .btn-green:hover { background: var(--clr-green-brand); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 60, 23, 0.18); }
 
-        .btn.gold {
-            background-color: var(--color-gold-accent);
-            color: #FFFFFF;
-            border: 1px solid var(--color-gold-accent);
+        .btn-white-outline {
+            background: transparent;
+            color: var(--clr-text-inverse);
+            border: 1.5px solid rgba(255,255,255,0.5);
         }
+        .btn-white-outline:hover { background: var(--clr-text-inverse); color: var(--clr-green-deep); }
 
-        .btn.gold:hover {
-            background-color: #FFFFFF;
-            color: var(--color-gold-accent);
-            box-shadow: 0 0 20px rgba(211, 183, 100, 0.5);
-        }
-
-        .btn.outline {
-            background-color: transparent;
-            color: var(--color-text-inverse);
-            border: 1px solid var(--color-text-inverse);
-        }
-
-        .btn.outline:hover {
-            background-color: #FFFFFF;
-            color: var(--color-text-primary);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-        }
-
-        /* Hero Section */
-        #hero {
-            position: relative;
-            height: 100vh;
-            padding: 0 5% 0 8%;
-            background: url('images/woman11.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: flex-end;
-            padding-bottom: 10vh;
-        }
-
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(355deg, rgba(0, 0, 0, 0.85) 6.87%, rgba(0, 0, 0, 0) 91.76%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 500px;
-            margin-left: 0;
-        }
-
-        .hero-subtext {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--color-text-inverse);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .hero-trust {
-            margin-top: var(--spacing-lg);
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero-trust-badge {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        /* Quiz Section */
-        #quiz {
-            background-color: var(--color-surface-primary);
-        }
-
-        .quiz-container {
-            max-width: 540px;
-            margin: 0 auto;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 3px;
-            background-color: var(--color-border-default);
-            margin-bottom: var(--spacing-md);
-            border-radius: 0px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background-color: var(--color-brand-primary);
-            width: 25%;
-            transition: width 0.3s ease;
-        }
-
-        .quiz-step {
-            display: none;
-        }
-
-        .quiz-step.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .quiz-step h3 {
-            margin-bottom: var(--spacing-sm);
-            font-size: 20px;
-        }
-
-        .option-group {
-            display: grid;
-            gap: var(--spacing-xs);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .option-card {
-            padding: 12px 16px;
-            cursor: pointer;
-            background-color: #FFFFFF;
-            font-size: 15px;
-        }
-
-        .form-field {
-            margin-bottom: var(--spacing-md);
-        }
-
-        .form-field input,
-        .form-field textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--color-border-default);
-            border-radius: 0px;
+        .link-arrow {
             font-family: var(--font-body);
-            font-size: 15px;
-            color: var(--color-text-primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            color: var(--clr-green-deep);
+            transition: color 0.3s;
         }
+        .link-arrow:hover { color: var(--clr-green-brand); }
+        .link-arrow::after { content: ' \2192'; }
 
-        .form-field input::placeholder,
-        .form-field textarea::placeholder {
-            color: var(--color-text-secondary);
+        /* ——— Sections ——— */
+        section { padding: clamp(var(--sp-64), 7vw, var(--sp-96)) 0; }
+
+        .section-header {
+            margin-bottom: var(--sp-48);
         }
+        .section-header p { margin-top: var(--sp-16); }
 
-        .quiz-buttons {
-            display: flex;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-sm);
-        }
-
-        .quiz-buttons button {
-            flex: 1;
-        }
-
-        /* What is Exomind Section */
-        #what-is {
-            background: url('images/device2.jpg') center/cover no-repeat;
-            position: relative;
-            padding: var(--spacing-2xl) 40px;
-        }
-
-        #what-is::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 20, 8, 0.55);
-            z-index: 1;
-        }
-
-        #what-is .content {
-            position: relative;
-            z-index: 2;
-            max-width: 1200px;
-            margin: 0 auto;
+        .section-header--center {
             text-align: center;
-        }
-
-        #what-is .eyebrow,
-        #what-is h2,
-        #what-is p.section-desc {
-            color: var(--color-text-inverse);
-        }
-
-        .cards-grid-2x2 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-2xl);
-        }
-
-        .glassmorphic-card {
-            background: rgba(255, 255, 255, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border-radius: 16px;
-            padding: var(--spacing-lg);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .glassmorphic-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .glassmorphic-card .icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .glassmorphic-card h3 {
-            color: var(--color-text-inverse);
-            font-size: 22px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .glassmorphic-card p {
-            color: var(--color-text-inverse-muted);
-            font-size: 15px;
-        }
-
-        /* How It Works Section */
-        #how-it-works {
-            background-color: var(--color-surface-primary);
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-2xl);
-            max-width: 900px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .step-card {
-            background: #FFFFFF;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 60, 23, 0.08);
-            border: 1px solid var(--color-border-default);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .section-header--center p { margin-left: auto; margin-right: auto; }
 
-        .step-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 60, 23, 0.15);
-        }
-
-        .step-card:nth-child(1) {
+        /* ——— Hero ——— */
+        #hero {
+            position: relative;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column-reverse;
+            align-items: flex-end;
+            padding: 0;
+            background: url('images/woman11.jpg') center / cover no-repeat;
         }
-
-        .step-card:nth-child(2) {
-            display: flex;
-            flex-direction: column;
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 20, 8, 0.88) 0%, rgba(0, 20, 8, 0.55) 40%, rgba(0, 20, 8, 0.12) 75%, transparent 100%);
+            z-index: 1;
         }
-
-        .step-card:nth-child(1) .step-card-image,
-        .step-card:nth-child(2) .step-card-image {
-            height: 280px;
-        }
-
-        .step-card:nth-child(3) {
-            grid-column: 1 / -1;
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 0 clamp(var(--sp-32), 6vw, 8%) var(--sp-96);
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: minmax(0, 560px) 1fr;
+            gap: var(--sp-48);
+            align-items: end;
+        }
+        .hero-content { display: flex; flex-direction: column; gap: var(--sp-32); }
+        .hero-eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--clr-amber);
+        }
+        .hero-body {
+            font-size: clamp(1rem, 1.2vw, 1.12rem);
+            line-height: 1.8;
+            color: var(--clr-text-inverse-muted);
+            max-width: 48ch;
+        }
+        .hero-cta-row { display: flex; align-items: center; gap: var(--sp-24); flex-wrap: wrap; }
+        .hero-badges { display: flex; gap: var(--sp-12); flex-wrap: wrap; margin-top: var(--sp-16); }
+        .hero-badge {
+            padding: var(--sp-8) var(--sp-16);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--clr-text-inverse);
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.08);
         }
 
-        .step-card:nth-child(3) .step-card-image {
-            height: 100%;
+        /* ——— Trust Bar ——— */
+        .trust-bar {
+            background: var(--clr-white);
+            border-bottom: 1px solid var(--clr-border);
+            padding: var(--sp-24) 0;
         }
-
-        .step-card-image {
-            width: 100%;
-            height: 260px;
-            overflow: hidden;
-        }
-
-        .step-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .step-card-body {
-            padding: var(--spacing-lg);
-            text-align: center;
+        .trust-bar-inner {
             display: flex;
-            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            gap: clamp(var(--sp-24), 3vw, var(--sp-48));
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-8);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--clr-text);
+            white-space: nowrap;
+        }
+        .trust-item svg { width: 18px; height: 18px; color: var(--clr-green-brand); flex-shrink: 0; }
+        .trust-item .star { color: var(--clr-amber-dark); font-size: 0.9rem; }
+
+        /* ——— Quiz ——— */
+        #quiz {
+            background: var(--clr-cream-dark);
         }
 
-        .step-number {
-            font-family: var(--font-display);
-            font-size: 48px;
-            font-weight: 400;
-            color: var(--color-brand-primary);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .step-card h3 {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .step-card p {
-            color: var(--color-text-secondary);
-            font-size: 16px;
-            max-width: 600px;
+        .quiz-container {
+            max-width: 640px;
             margin: 0 auto;
         }
 
-        /* Conditions Section */
-        #conditions {
-            background-color: var(--color-surface-secondary);
-            overflow: hidden;
+        .quiz-card {
+            background: var(--clr-white);
+            border-radius: var(--radius-lg);
+            padding: var(--sp-48);
+            box-shadow: 0 2px 16px rgba(0, 60, 23, 0.04);
         }
 
-        .conditions-slider-wrapper {
-            position: relative;
-            margin-top: var(--spacing-2xl);
-        }
-
-        .conditions-slider {
+        .quiz-dots {
             display: flex;
-            gap: 24px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding: 20px 0 40px;
-            scroll-padding: 0 calc(50% - 200px);
+            justify-content: center;
+            gap: var(--sp-8);
+            margin-bottom: var(--sp-32);
+        }
+        .quiz-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--clr-border);
+            border: none;
+            transition: background 0.3s;
+        }
+        .quiz-dot.active { background: var(--clr-green-deep); }
+
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; animation: fadeUp 0.35s var(--ease-out); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .conditions-slider::-webkit-scrollbar {
-            display: none;
+        .quiz-step h3 {
+            text-align: center;
+            font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+            margin-bottom: var(--sp-32);
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-12);
+            margin-bottom: var(--sp-32);
+        }
+
+        .option-card {
+            padding: var(--sp-16) var(--sp-24);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.92rem;
+            color: var(--clr-text);
+            background: var(--clr-white);
+            transition: all 0.25s var(--ease-out);
+            text-align: left;
+        }
+        .option-card:hover { border-color: var(--clr-green-brand); }
+        .option-card.selected { border-color: var(--clr-green-brand); background: rgba(27, 103, 56, 0.04); box-shadow: 0 0 0 1px var(--clr-green-brand); }
+
+        .option-card input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0; height: 0;
+            pointer-events: none;
+        }
+
+        .quiz-buttons { display: flex; gap: var(--sp-12); justify-content: center; }
+        .quiz-buttons button { min-width: 120px; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
+        @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+        .form-field { margin-bottom: var(--sp-16); }
+        .form-field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--clr-text);
+            margin-bottom: var(--sp-8);
+        }
+        .form-field input,
+        .form-field textarea {
+            width: 100%;
+            padding: var(--sp-12) var(--sp-16);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            color: var(--clr-text);
+            background: var(--clr-white);
+            transition: border-color 0.3s;
+        }
+        .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--clr-green-brand); }
+        .form-field input::placeholder, .form-field textarea::placeholder { color: var(--clr-text-muted); }
+        .form-field textarea { resize: vertical; min-height: 100px; }
+
+        /* ——— What-is / Science Section ——— */
+        #what-is {
+            background: var(--clr-cream);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--sp-24);
+            margin-top: var(--sp-48);
+        }
+
+        .benefit-card {
+            background: var(--clr-cream-card);
+            border: 1px solid var(--clr-border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--sp-32);
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), background 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            background: var(--clr-green-deep);
+            border-color: var(--clr-green-deep);
+            box-shadow: 0 16px 40px rgba(0, 60, 23, 0.18);
+        }
+        .benefit-card:hover .num { color: var(--clr-amber); }
+        .benefit-card:hover h3 { color: var(--clr-text-inverse); }
+        .benefit-card:hover p { color: var(--clr-text-inverse-muted); }
+
+        .benefit-card .num {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            line-height: 1;
+            margin-bottom: var(--sp-24);
+            display: block;
+            transition: color 0.4s var(--ease-out);
+        }
+
+        .benefit-card h3 { margin-bottom: var(--sp-12); transition: color 0.4s var(--ease-out); }
+        .benefit-card p { font-size: 0.88rem; line-height: 1.65; transition: color 0.4s var(--ease-out); }
+
+        /* ——— Conditions ——— */
+        #conditions {
+            background: var(--clr-cream-dark);
+        }
+
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-24);
+            margin-top: var(--sp-48);
+        }
+        .conditions-grid.row-2 {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: var(--sp-24);
         }
 
         .condition-card {
-            flex: 0 0 480px;
-            height: 380px;
-            border-radius: 16px;
             position: relative;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            scroll-snap-align: center;
-            cursor: pointer;
-            transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
-            filter: blur(2px) brightness(0.7);
-            opacity: 0.6;
-            transform: scale(0.9);
+            min-height: 340px;
+            display: flex;
+            align-items: flex-end;
+            transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
         }
-
-        .condition-card.active {
-            filter: blur(0) brightness(1);
-            opacity: 1;
-            transform: scale(1);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+        .condition-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 60, 23, 0.15);
         }
-
-        .condition-card-bg {
+        .condition-card img {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-size: cover;
-            background-position: center;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--ease-out);
+        }
+        .condition-card:hover img { transform: scale(1.05); }
+        .condition-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 30, 12, 0.82) 0%, rgba(0, 30, 12, 0.3) 50%, transparent 100%);
             z-index: 1;
         }
-
-        .condition-card-overlay {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(0deg, rgba(0, 30, 10, 0.85) 0%, rgba(0, 30, 10, 0.3) 60%, transparent 100%);
+        .condition-card-body {
+            position: relative;
             z-index: 2;
+            padding: var(--sp-32);
+        }
+        .condition-card-body .num {
+            font-size: 1.8rem;
+            color: var(--clr-amber);
+            margin-bottom: var(--sp-8);
+            display: block;
+        }
+        .condition-card-body h3 {
+            color: var(--clr-text-inverse);
+            font-size: clamp(1.2rem, 1.6vw, 1.4rem);
+            margin-bottom: var(--sp-8);
+        }
+        .condition-card-body p {
+            color: var(--clr-text-inverse-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
         }
 
-        .condition-card-content {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: var(--spacing-lg);
-            z-index: 3;
-            color: #FFFFFF;
+        /* ——— CTA Banner ——— */
+        .cta-banner {
+            background: var(--clr-amber-dark);
+            padding: var(--sp-32) 0;
+        }
+        .cta-banner-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--sp-24);
+            flex-wrap: wrap;
+        }
+        .cta-banner h3 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+            color: var(--clr-text-inverse);
+        }
+        .cta-banner .link-arrow { color: var(--clr-text-inverse); text-decoration-color: rgba(255,255,255,0.4); }
+        .cta-banner .link-arrow:hover { text-decoration-color: #fff; }
+
+        /* ——— How It Works ——— */
+        #how-it-works {
+            background: var(--clr-cream);
         }
 
-        .condition-card h3 {
-            font-size: 28px;
-            margin-bottom: var(--spacing-xs);
-            color: #FFFFFF;
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-24);
+            margin-top: var(--sp-48);
         }
 
-        .condition-card p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.5;
+        .step-card {
+            background: var(--clr-cream-card);
+            border: 1px solid var(--clr-border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--sp-32);
+            transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
         }
+        .step-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0, 60, 23, 0.06); }
 
-        .slider-nav,
-        .slider-controls {
-            display: none;
+        .step-card .num {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            line-height: 1;
+            margin-bottom: var(--sp-24);
+            display: block;
         }
+        .step-card h3 { margin-bottom: var(--sp-12); }
+        .step-card p { font-size: 0.88rem; line-height: 1.65; }
 
-        /* Video Section */
+        /* ——— Video ——— */
         #video {
-            background-color: var(--color-brand-secondary);
-        }
-
-        #video .eyebrow {
-            color: var(--color-gold-accent);
-        }
-
-        #video h2 {
-            color: var(--color-text-inverse);
+            background: var(--clr-cream-dark);
         }
 
         .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: var(--spacing-2xl) auto 0;
-            aspect-ratio: 16/9;
-            background: #000;
-            border-radius: 12px;
+            max-width: 860px;
+            margin: var(--sp-48) auto 0;
+            aspect-ratio: 16 / 9;
+            background: #0a0a0a;
+            border-radius: var(--radius-lg);
             overflow: hidden;
+            position: relative;
+        }
+        .video-container video {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
         }
 
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background-color: var(--color-gold-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .play-button:hover {
-            background-color: var(--color-gold-light);
-            transform: scale(1.1);
-        }
-
-        .play-icon {
-            width: 0;
-            height: 0;
-            border-left: 30px solid var(--color-text-primary);
-            border-top: 20px solid transparent;
-            border-bottom: 20px solid transparent;
-            margin-left: 6px;
-        }
-
-        /* Reviews Section */
+        /* ——— Reviews ——— */
         #reviews {
-            background-color: var(--color-surface-primary);
-        }
-
-        .google-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            margin-bottom: 0;
-            margin-top: calc(-1 * var(--spacing-md));
-        }
-
-        .google-rating .stars {
-            display: flex;
-            gap: 4px;
-        }
-
-        .google-rating .star {
-            color: var(--color-gold-accent);
-            font-size: 20px;
-        }
-
-        .google-rating .rating-text {
-            font-size: 16px;
-            color: var(--color-text-secondary);
+            background: var(--clr-cream);
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            margin-top: var(--spacing-2xl);
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: var(--sp-24);
+            margin-top: var(--sp-48);
         }
 
         .review-card {
-            background: linear-gradient(145deg, rgba(184, 134, 11, 0.7), rgba(139, 90, 0, 0.75));
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            padding: var(--spacing-lg);
-            border-radius: 14px;
-            border: 1px solid rgba(255, 215, 0, 0.25);
-            box-shadow: 0 6px 24px rgba(139, 90, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 40px rgba(184, 134, 11, 0.5), 0 0 30px rgba(255, 215, 0, 0.25);
-            border-color: rgba(255, 215, 0, 0.5);
-        }
-
-        .review-header {
+            background: var(--clr-cream-card);
+            border: 1px solid var(--clr-border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--sp-32);
             display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
+            flex-direction: column;
+            transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
         }
+        .review-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0, 60, 23, 0.06); }
 
-        .reviewer-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFFF;
-            font-weight: 700;
-            font-size: 18px;
-            overflow: hidden;
-            flex-shrink: 0;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .reviewer-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .reviewer-name {
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-
-        .review-stars {
-            display: flex;
-            gap: 4px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .review-stars .star {
-            color: #FFFFFF;
-            font-size: 16px;
-        }
+        .review-stars { display: flex; gap: 2px; margin-bottom: var(--sp-16); }
+        .review-stars .star { color: var(--clr-amber-dark); font-size: 0.9rem; }
 
         .review-text {
-            font-size: 15px;
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--clr-text-body);
+            flex: 1;
+            font-style: italic;
+            margin-bottom: var(--sp-24);
         }
 
-        /* Doctor Section */
-        #doctor {
-            background-color: var(--color-surface-secondary);
-        }
-
-        .doctor-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-2xl);
-            align-items: start;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .doctor-image {
-            width: 100%;
-            border-radius: 0px;
-            position: relative;
-            padding: 12px;
-            overflow: hidden;
-        }
-
-        .doctor-image::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border: 2px solid var(--color-brand-primary);
-            border-radius: 2px;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .doctor-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .doctor-image:hover img {
-            transform: scale(1.08);
-        }
-
-        .credentials-box {
-            margin-top: var(--spacing-xl);
-            background: #1A3A2A;
-            border-radius: 12px;
-            padding: var(--spacing-lg);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
-
-        .credentials-box::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-            transition: none;
-            pointer-events: none;
-        }
-
-        .credentials-box:hover {
-            box-shadow: 0 8px 32px rgba(26, 58, 42, 0.4);
-        }
-
-        .credentials-box:hover::after {
-            animation: shine 0.8s ease forwards;
-        }
-
-        .credentials-box .credentials-title {
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-gold-accent);
-            font-size: 18px;
-        }
-
-        .credentials-box .credential-item {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .credentials-box .credential-check {
-            color: var(--color-gold-accent);
-        }
-
-        .doctor-bio h3 {
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .doctor-title {
-            color: var(--color-brand-primary);
-            font-weight: 700;
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .doctor-bio p {
-            margin-bottom: var(--spacing-md);
-            color: var(--color-text-secondary);
-        }
-
-        .credential-item {
+        .review-author {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
-            font-size: 16px;
-            color: var(--color-text-secondary);
+            gap: var(--sp-12);
+            padding-top: var(--sp-16);
+            border-top: 1px solid var(--clr-border);
         }
-
-        .credential-check {
-            color: var(--color-brand-primary);
+        .review-avatar {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--clr-text-inverse);
             font-weight: 700;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: url('images/woman1.jpg') center/cover no-repeat fixed;
-            position: relative;
-        }
-
-        #contact::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 30, 12, 0.55);
-        }
-
-        #contact > * {
-            position: relative;
-            z-index: 1;
-        }
-
-        #contact .eyebrow {
-            color: var(--color-gold-accent);
-        }
-
-        #contact h2 {
-            color: #FFFFFF;
-        }
-
-
-        .contact-container {
-            max-width: 900px;
-            margin: var(--spacing-2xl) auto 0;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 16px;
-            padding: var(--spacing-xl);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-container .contact-info-item h4 {
-            color: var(--color-gold-accent);
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .contact-container .contact-info-item p,
-        .contact-container .contact-info-item a {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .contact-container .contact-info-item a:hover {
-            color: #FFFFFF;
-        }
-
-        .contact-container .form-field input,
-        .contact-container .form-field textarea {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: #FFFFFF;
-            border-radius: 8px;
-        }
-
-        .contact-container .form-field input::placeholder,
-        .contact-container .form-field textarea::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: var(--spacing-xl);
-            align-items: start;
-        }
-
-        .contact-info {
-            padding-top: var(--spacing-md);
-        }
-
-        .contact-info-item {
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .contact-info-item h4 {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            text-transform: none;
-            letter-spacing: 0;
-            color: var(--color-brand-primary);
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .contact-info-item p,
-        .contact-info-item a {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-        }
-
-        .contact-info-item a:hover {
-            color: var(--color-brand-primary);
-        }
-
-        .contact-form {
-            max-width: 100%;
-            padding-top: var(--spacing-2xl);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-md);
-        }
-
-        .form-row-full {
-            grid-column: 1 / -1;
-        }
-
-        .form-field textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-note {
-            text-align: center;
-            margin-top: var(--spacing-lg);
-            color: var(--color-text-secondary);
-            font-size: 16px;
-        }
-
-        .contact-note a {
-            color: var(--color-brand-primary);
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        /* Map Section */
-        .contact-map {
-            margin-top: var(--spacing-lg);
-            border-radius: 12px;
+            font-size: 0.78rem;
             overflow: hidden;
+            flex-shrink: 0;
+            background: var(--clr-text-muted);
         }
+        .review-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .review-name { font-weight: 600; font-size: 0.88rem; color: var(--clr-text); }
 
-        .contact-map iframe {
-            width: 100%;
-            height: 220px;
-            border: none;
-            display: block;
-        }
-
-        /* FAQ Section */
+        /* ——— FAQ ——— */
         #faq {
-            background: linear-gradient(135deg, var(--color-brand-secondary), #002A10);
-        }
-
-        #faq .eyebrow {
-            color: var(--color-gold-accent);
-        }
-
-        #faq h2 {
-            color: #FFFFFF;
+            background: var(--clr-cream-dark);
         }
 
         .faq-container {
-            max-width: 800px;
-            margin: var(--spacing-2xl) auto 0;
+            max-width: 700px;
+            margin: var(--sp-48) auto 0;
         }
 
         .faq-item {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 14px;
-            margin-bottom: var(--spacing-sm);
-            transition: background 0.3s ease, border-color 0.3s ease;
+            background: var(--clr-white);
+            border: 1px solid var(--clr-border-card);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--sp-12);
+            overflow: hidden;
+            transition: border-color 0.3s;
         }
-
-        .faq-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .faq-item.active {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(184, 134, 11, 0.4);
-        }
+        .faq-item.active { border-color: var(--clr-amber-muted); }
 
         .faq-question {
-            padding: var(--spacing-md) var(--spacing-lg);
+            padding: var(--sp-24) var(--sp-32);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -1215,918 +677,760 @@
             border: none;
             width: 100%;
             text-align: left;
-            font-size: 18px;
-            font-weight: 700;
-            color: #FFFFFF;
-            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--clr-text);
+            gap: var(--sp-16);
+            transition: color 0.3s;
         }
+        .faq-question:hover { color: var(--clr-green-brand); }
 
-        .faq-question:hover {
-            color: var(--color-gold-light);
+        .faq-num {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--clr-amber-muted);
+            font-size: 1.1rem;
+            margin-right: var(--sp-12);
+            flex-shrink: 0;
         }
 
         .faq-toggle {
-            font-size: 24px;
-            color: var(--color-gold-accent);
-            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--clr-text-muted);
+            transition: transform 0.35s var(--ease-out);
             flex-shrink: 0;
-            margin-left: var(--spacing-sm);
         }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
+        .faq-item.active .faq-toggle { transform: rotate(180deg); }
 
         .faq-answer {
             display: none;
-            padding: 0 var(--spacing-lg) var(--spacing-lg);
-            color: rgba(255, 255, 255, 0.75);
-            line-height: 1.7;
-            font-size: 16px;
+            padding: 0 var(--sp-32) var(--sp-24);
+            padding-left: calc(var(--sp-32) + 2rem);
+            color: var(--clr-text-body);
+            font-size: 0.9rem;
+            line-height: 1.75;
         }
+        .faq-item.active .faq-answer { display: block; }
 
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #8B6F47, #6B5234);
-            color: var(--color-text-inverse);
-            padding: var(--spacing-xl) 40px var(--spacing-lg);
+        /* ——— Big CTA Section ——— */
+        #big-cta {
+            background: var(--clr-green-deep);
+            padding: clamp(var(--sp-64), 8vw, var(--sp-96)) 0;
             text-align: center;
         }
+        #big-cta .eyebrow { color: var(--clr-amber); }
+        #big-cta h2 { color: var(--clr-text-inverse); margin-bottom: var(--sp-24); }
+        #big-cta p { color: var(--clr-text-inverse-muted); margin: 0 auto var(--sp-32); max-width: 52ch; text-align: center; }
+        #big-cta .btn-cta-row { display: flex; flex-direction: column; align-items: center; gap: var(--sp-16); }
+        #big-cta .phone-link { color: var(--clr-text-inverse-muted); text-decoration: underline; text-underline-offset: 3px; font-size: 0.88rem; }
+        #big-cta .phone-link:hover { color: var(--clr-text-inverse); }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* ——— Doctor + Contact Form ——— */
+        #doctor-contact {
+            background: var(--clr-cream);
+        }
+
+        .doctor-form-layout {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-            text-align: left;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-64);
+            align-items: start;
         }
 
-        .footer-logo {
-            margin-bottom: var(--spacing-md);
+        .doctor-photo {
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: var(--sp-24);
+            max-width: 400px;
         }
+        .doctor-photo img { width: 100%; height: auto; }
 
-        .footer-logo-name {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 400;
-            color: var(--color-text-inverse);
-            line-height: 1.3;
-        }
-
-        .footer-social-links {
+        .doctor-credentials {
             display: flex;
-            gap: var(--spacing-sm);
-            margin-top: var(--spacing-md);
+            flex-direction: column;
+            gap: var(--sp-8);
+            margin: var(--sp-24) 0;
         }
-
-        .footer-social-links a {
+        .credential-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
+            gap: var(--sp-12);
+            font-size: 0.88rem;
+            color: var(--clr-text-body);
+        }
+        .credential-dot {
+            width: 8px; height: 8px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            transition: background 0.3s ease;
+            background: var(--clr-amber-muted);
+            flex-shrink: 0;
         }
 
-        .footer-social-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
+        .doctor-bio-text {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--clr-text-body);
+            margin-top: var(--sp-24);
         }
 
-        .footer-social-links svg {
-            width: 20px;
-            height: 20px;
-            fill: #FFFFFF;
+        .contact-card {
+            background: var(--clr-cream-card);
+            border: 1px solid var(--clr-border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--sp-48);
+        }
+        .contact-card h3 {
+            font-size: clamp(1.3rem, 2vw, 1.6rem);
+            margin-bottom: var(--sp-8);
+        }
+        .contact-card .contact-subtitle {
+            font-size: 0.88rem;
+            color: var(--clr-text-muted);
+            margin-bottom: var(--sp-32);
+        }
+        .contact-card .form-field label { display: block; margin-bottom: var(--sp-4); }
+        .contact-card .form-field input,
+        .contact-card .form-field textarea {
+            background: var(--clr-white);
+        }
+        .contact-card .privacy-note {
+            font-size: 0.75rem;
+            color: var(--clr-text-muted);
+            margin-top: var(--sp-12);
+        }
+        .contact-card .privacy-note a { text-decoration: underline; }
+
+        /* ——— Contact Info + Map ——— */
+        #contact-info {
+            background: var(--clr-cream);
+            padding-top: 0;
+        }
+        .contact-info-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: var(--sp-48);
+            align-items: start;
+        }
+        .info-column { }
+        .info-column .info-item { margin-bottom: var(--sp-24); }
+        .info-column .info-item .eyebrow { margin-bottom: var(--sp-4); font-size: 0.65rem; }
+        .info-column .info-item p,
+        .info-column .info-item a { font-size: 0.9rem; line-height: 1.6; color: var(--clr-text-body); text-decoration: none; display: block; }
+        .info-column .info-item a:hover { color: var(--clr-green-brand); }
+
+        .contact-map {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 320px;
+        }
+        .contact-map iframe { width: 100%; height: 100%; border: none; display: block; }
+
+        /* ——— Footer ——— */
+        footer {
+            background: var(--clr-white);
+            border-top: 1px solid var(--clr-border);
+            padding: var(--sp-64) 0 var(--sp-32);
         }
 
-        .footer-section h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: var(--sp-48);
+            margin-bottom: var(--sp-48);
         }
 
-        .footer-section p,
-        .footer-section a {
-            font-size: 15px;
+        .footer-logo { margin-bottom: var(--sp-16); }
+        .footer-logo img { height: 36px; width: auto; }
+
+        .footer-address {
+            font-size: 0.85rem;
             line-height: 1.6;
-            color: var(--color-text-inverse-muted);
-            text-decoration: none;
+            color: var(--clr-text-body);
+            margin-bottom: var(--sp-4);
+        }
+        .footer-address a { text-decoration: none; }
+        .footer-address a:hover { color: var(--clr-green-brand); }
+
+        .footer-section-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--clr-text);
+            margin-bottom: var(--sp-16);
+        }
+
+        .footer-links a {
             display: block;
-            margin-bottom: var(--spacing-xs);
+            font-size: 0.85rem;
+            color: var(--clr-text-body);
+            text-decoration: none;
+            margin-bottom: var(--sp-8);
+            transition: color 0.3s;
         }
+        .footer-links a:hover { color: var(--clr-green-brand); }
 
-        .footer-section a:hover {
-            color: var(--color-text-inverse);
+        .footer-hours p { font-size: 0.85rem; color: var(--clr-text-body); line-height: 1.6; }
+
+        .footer-bottom {
+            padding-top: var(--sp-24);
+            border-top: 1px solid var(--clr-border);
         }
-
-        .footer-bottom-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: var(--spacing-sm);
+        .footer-legal {
+            font-size: 0.72rem;
+            color: var(--clr-text-muted);
+            line-height: 1.7;
+            margin-bottom: var(--sp-16);
+            max-width: 100%;
         }
-
-        .footer-bottom-logo img {
-            height: 36px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .footer-bottom-logo img:hover {
-            opacity: 1;
-            filter: brightness(0) invert(1) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.4));
-        }
-
         .footer-copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: var(--spacing-sm);
-            font-size: 14px;
-            color: var(--color-text-inverse-muted);
+            font-size: 0.78rem;
+            color: var(--clr-text-muted);
         }
 
-        /* Animations */
-        .fade-up {
+        /* ——— Animations ——— */
+        .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transform: translateY(20px);
+            transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
         }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            section {
-                padding: var(--spacing-xl) 30px;
-            }
-
-            .condition-card {
-                flex: 0 0 320px;
-                height: 280px;
-            }
-
-            .cards-grid-2x2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .reviews-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: var(--spacing-md);
-            }
-
-            .doctor-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-layout {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-xl);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+        /* ——— Responsive ——— */
+        @media (max-width: 1024px) {
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .doctor-form-layout { grid-template-columns: 1fr; gap: var(--sp-48); }
+            .contact-info-layout { grid-template-columns: 1fr; }
+            .conditions-grid { grid-template-columns: repeat(2, 1fr); }
+            .conditions-grid.row-2 { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr; gap: var(--sp-32); }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 12px 16px;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                gap: 10px;
-            }
+            nav { padding: var(--sp-12) var(--sp-16); }
+            nav .logo img { height: 30px; }
+            .nav-right .phone { display: none; }
 
-            nav .logo img {
-                height: 32px;
-            }
+            .hero-inner { grid-template-columns: 1fr; padding-bottom: var(--sp-64); }
 
-            nav .nav-right {
-                flex-shrink: 0;
-            }
+            .trust-bar-inner { justify-content: flex-start; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 0 var(--sp-24); }
+            .trust-bar-inner::-webkit-scrollbar { display: none; }
 
-            .nav-right .phone {
-                display: none;
-            }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
 
-            section {
-                padding: var(--spacing-xl) 20px;
-            }
+            .conditions-grid { grid-template-columns: 1fr; }
+            .conditions-grid.row-2 { grid-template-columns: 1fr; }
+            .condition-card { min-height: 280px; }
 
-            h1 {
-                font-size: 48px;
-            }
+            .option-grid { grid-template-columns: 1fr; }
+            .quiz-card { padding: var(--sp-32) var(--sp-24); }
 
-            h2 {
-                font-size: 36px;
-                line-height: 44px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-            #hero {
-                align-items: stretch;
-                padding-top: 80px;
-                padding-bottom: 5vh;
-            }
-
-            .hero-content {
-                max-width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 100%;
-            }
-
-            .hero-top {
-                padding-top: 10px;
-            }
-
-            .hero-bottom {
-                margin-top: auto;
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .step-card:nth-child(1),
-            .step-card:nth-child(2) {
-                aspect-ratio: auto;
-            }
-
-            .step-card:nth-child(3) {
-                grid-column: auto;
-                grid-template-columns: 1fr;
-            }
-
-            .condition-card {
-                flex: 0 0 320px;
-                height: 280px;
-            }
-
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .quiz-buttons {
-                flex-direction: column;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+            .contact-info-layout { grid-template-columns: 1fr; }
+            .cta-banner-inner { flex-direction: column; text-align: center; }
         }
 
         @media (max-width: 480px) {
-            nav {
-                padding: 10px 12px;
-            }
-
-            nav .logo img {
-                height: 28px;
-            }
-
-            .btn-nav-cta {
-                padding: 10px 16px;
-                font-size: 11px;
-            }
-
-            section {
-                padding: var(--spacing-lg) 16px;
-            }
-
-            h1 {
-                font-size: 36px;
-                margin-bottom: var(--spacing-md);
-            }
-
-            h2 {
-                font-size: 28px;
-                line-height: 36px;
-            }
-
-            h3 {
-                font-size: 22px;
-            }
-
-            p, .eyebrow {
-                font-size: 14px;
-            }
-
-            .hero-trust {
-                gap: 8px;
-            }
-
-            .hero-trust-badge {
-                padding: 8px 14px;
-                font-size: 11px;
-            }
-
-            .condition-card {
-                flex: 0 0 280px;
-                height: 260px;
-            }
-
-            .cards-grid-2x2 {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-subtext {
-                font-size: 16px;
-            }
-
-            .btn {
-                padding: 12px 24px;
-                font-size: 11px;
-            }
-
-            .step-number {
-                font-size: 48px;
-            }
-
-            .quiz-container {
-                width: 100%;
-            }
+            nav { padding: var(--sp-8) var(--sp-12); }
+            nav .logo img { height: 26px; }
+            .btn-nav { padding: var(--sp-8) var(--sp-16); font-size: 0.65rem; }
+            .hero-inner { padding: 0 var(--sp-24) var(--sp-48); }
+            .hero-badges { gap: var(--sp-8); }
+            .hero-badge { padding: 6px var(--sp-12); font-size: 0.58rem; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav>
         <a href="#hero" class="logo"><img src="images/logo.png" alt="WinMind Integrative Wellness"></a>
         <div class="nav-right">
-            <a href="tel:(813) 934-2953" class="phone">(813) 934-2953</a>
-            <button class="btn-nav-cta" onclick="scrollToSection('contact')">Book Consultation</button>
+            <button class="btn-nav" onclick="scrollToSection('doctor-contact')">Book Consult</button>
         </div>
     </nav>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section (kept as-is per your request) -->
         <section id="hero">
-            <div class="hero-content">
-                <div class="hero-top">
-                    <div class="eyebrow">Advanced Brain Wellness</div>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <span class="hero-eyebrow">Advanced Brain Wellness</span>
                     <h1>Reclaim Your <i>Mental Clarity</i> Without Medication</h1>
-                </div>
-                <div class="hero-bottom">
-                    <p class="hero-subtext">Exomind uses FDA cleared, non invasive ExoTMS™ technology to treat depression, anxiety, and more. No drugs. No downtime. Just results.</p>
-                    <button class="btn gold" onclick="scrollToSection('contact')">Book Your Free Consultation</button>
-                    <div class="hero-trust">
-                        <span class="hero-trust-badge">FDA Cleared</span>
-                        <span class="hero-trust-badge">Non Invasive</span>
-                        <span class="hero-trust-badge">Drug Free</span>
-                        <span class="hero-trust-badge">Under 30 Minutes</span>
+                    <p class="hero-body">Exomind uses FDA-cleared, non-invasive ExoTMS™ technology to treat depression, anxiety, and more. No drugs. No downtime. Just results.</p>
+                    <div>
+                        <div class="hero-cta-row">
+                            <button class="btn btn-green" onclick="scrollToSection('doctor-contact')">Book Your Free Consultation</button>
+                        </div>
+                        <div class="hero-badges">
+                            <span class="hero-badge">FDA Cleared</span>
+                            <span class="hero-badge">Non-Invasive</span>
+                            <span class="hero-badge">Drug-Free</span>
+                            <span class="hero-badge">Under 30 Min</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Trust Bar -->
+        <div class="trust-bar">
+            <div class="container">
+                <div class="trust-bar-inner">
+                    <span class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Dr. Venkat G. Muvva, MD
+                    </span>
+                    <span class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Multi-Board-Certified
+                    </span>
+                    <span class="trust-item">
+                        <span class="star">★</span> 4.7★ · 77 Google Reviews
+                    </span>
+                    <span class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        FDA-Cleared
+                    </span>
+                    <span class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        HIPAA Compliant
+                    </span>
+                </div>
+            </div>
+        </div>
 
         <!-- Quiz Section -->
         <section id="quiz">
-            <div class="quiz-container">
-                <div class="eyebrow">Find Out If Exomind Is Right For You</div>
-                <h2>Take Our Quick <i>Assessment</i></h2>
-
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <div class="eyebrow">Quick Self-Check</div>
+                    <h2>Am I a Candidate for <i>Exomind</i>?</h2>
+                    <p>Three quick questions. No email required to see your result. Takes under a minute.</p>
                 </div>
 
-                <!-- Step 1 -->
-                <div class="quiz-step active">
-                    <h3>Which best describes your primary concern?</h3>
-                    <div class="option-group">
-                        <label class="option-card">
-                            <input type="radio" name="concern" value="depression"> Depression
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="concern" value="anxiety"> Anxiety
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="concern" value="ocd"> OCD
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="concern" value="binge-eating"> Binge Eating
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="concern" value="brain-fog"> Brain Fog
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="concern" value="other"> Other
-                        </label>
-                    </div>
-                    <div class="quiz-buttons">
-                        <button class="btn" style="visibility:hidden;">Back</button>
-                        <button class="btn" onclick="nextQuizStep()">Next</button>
-                    </div>
-                </div>
+                <div class="quiz-container">
+                    <div class="quiz-card">
+                        <div class="quiz-dots">
+                            <span class="quiz-dot active"></span>
+                            <span class="quiz-dot"></span>
+                            <span class="quiz-dot"></span>
+                        </div>
 
-                <!-- Step 2 -->
-                <div class="quiz-step">
-                    <h3>Have you tried medication for this condition?</h3>
-                    <div class="option-group">
-                        <label class="option-card">
-                            <input type="radio" name="medication" value="yes-current"> Yes, currently on medication
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="medication" value="yes-stopped"> Yes, but stopped
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="medication" value="no"> No, never tried
-                        </label>
-                    </div>
-                    <div class="quiz-buttons">
-                        <button class="btn" onclick="prevQuizStep()">Back</button>
-                        <button class="btn" onclick="nextQuizStep()">Next</button>
-                    </div>
-                </div>
+                        <!-- Step 1 -->
+                        <div class="quiz-step active">
+                            <h3>Have you tried antidepressant medications without getting the results you hoped for?</h3>
+                            <div class="option-grid">
+                                <label class="option-card"><input type="radio" name="q1" value="yes-multiple"> Yes, more than one</label>
+                                <label class="option-card"><input type="radio" name="q1" value="yes-one"> Yes, just one</label>
+                                <label class="option-card"><input type="radio" name="q1" value="no"> I haven't tried medication yet</label>
+                                <label class="option-card"><input type="radio" name="q1" value="helping"> I'm currently on medication that's helping</label>
+                            </div>
+                            <div class="quiz-buttons">
+                                <button class="btn btn-green" onclick="nextQuizStep()">Next</button>
+                            </div>
+                        </div>
 
-                <!-- Step 3 -->
-                <div class="quiz-step">
-                    <h3>How long have you been experiencing symptoms?</h3>
-                    <div class="option-group">
-                        <label class="option-card">
-                            <input type="radio" name="duration" value="less-6m"> Less than 6 months
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="duration" value="6m-2y"> 6 months to 2 years
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="duration" value="more-2y"> More than 2 years
-                        </label>
-                    </div>
-                    <div class="quiz-buttons">
-                        <button class="btn" onclick="prevQuizStep()">Back</button>
-                        <button class="btn" onclick="showQuizResult()">See My Results</button>
-                    </div>
-                </div>
+                        <!-- Step 2 -->
+                        <div class="quiz-step">
+                            <h3>Which best describes your primary concern?</h3>
+                            <div class="option-grid">
+                                <label class="option-card"><input type="radio" name="q2" value="depression"> Depression</label>
+                                <label class="option-card"><input type="radio" name="q2" value="anxiety"> Anxiety</label>
+                                <label class="option-card"><input type="radio" name="q2" value="ocd"> OCD</label>
+                                <label class="option-card"><input type="radio" name="q2" value="other"> Other / Not Sure</label>
+                            </div>
+                            <div class="quiz-buttons">
+                                <button class="btn btn-green" style="background: transparent; color: var(--clr-text); border: 1px solid var(--clr-border);" onclick="prevQuizStep()">Back</button>
+                                <button class="btn btn-green" onclick="nextQuizStep()">Next</button>
+                            </div>
+                        </div>
 
-                <!-- Step 4: Result CTA -->
-                <div class="quiz-step" id="quizResult">
-                    <div style="text-align: center; padding: var(--spacing-lg) 0;">
-                        <h3 style="color: var(--color-brand-primary); margin-bottom: var(--spacing-sm);">You May Be a Great Candidate for Exomind</h3>
-                        <p class="secondary" style="margin-bottom: var(--spacing-lg);">Based on your answers, Exomind brain wellness therapy could help you. Book a free consultation to discuss your personalized treatment plan with our team.</p>
-                        <button class="btn gold" onclick="scrollToSection('contact')" style="font-size: 14px; padding: 16px 40px;">Book Your Free Consultation Now</button>
+                        <!-- Step 3 -->
+                        <div class="quiz-step">
+                            <h3>How long have you been experiencing symptoms?</h3>
+                            <div class="option-grid">
+                                <label class="option-card"><input type="radio" name="q3" value="less-6m"> Less than 6 months</label>
+                                <label class="option-card"><input type="radio" name="q3" value="6m-2y"> 6 months to 2 years</label>
+                                <label class="option-card"><input type="radio" name="q3" value="more-2y"> More than 2 years</label>
+                                <label class="option-card"><input type="radio" name="q3" value="unsure"> I'm not sure</label>
+                            </div>
+                            <div class="quiz-buttons">
+                                <button class="btn btn-green" style="background: transparent; color: var(--clr-text); border: 1px solid var(--clr-border);" onclick="prevQuizStep()">Back</button>
+                                <button class="btn btn-green" onclick="showQuizResult()">See My Results</button>
+                            </div>
+                        </div>
+
+                        <!-- Result -->
+                        <div class="quiz-step" id="quizResult">
+                            <div style="text-align: center; padding: var(--sp-16) 0;">
+                                <h3 style="color: var(--clr-green-deep); margin-bottom: var(--sp-12);">You May Be a Great Candidate for Exomind</h3>
+                                <p style="color: var(--clr-text-body); margin: 0 auto var(--sp-32); max-width: 440px;">Based on your answers, Exomind brain wellness therapy could help you. Book a free consultation to discuss your personalized treatment plan.</p>
+                                <button class="btn btn-green" onclick="scrollToSection('doctor-contact')">Book Your Free Consultation</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- What is Exomind -->
+        <!-- What is Exomind / Science Section -->
         <section id="what-is">
-            <div class="content">
-                <div class="eyebrow">The Science Behind Your Recovery</div>
-                <h2 class="white">What is <i>Exomind</i>?</h2>
-                <p class="white section-desc">Exomind is a second generation brain wellness therapy that uses patented ExoTMS™ technology to deliver precisely targeted magnetic pulses to the dorsolateral prefrontal cortex (DLPFC), the brain region responsible for mood regulation, decision making, and cognitive control.</p>
-
-                <div class="cards-grid-2x2">
-                    <div class="glassmorphic-card">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="white">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                        <h3>FDA Cleared Technology</h3>
-                        <p>Exomind is FDA cleared for the treatment of Major Depressive Disorder, backed by rigorous clinical trials and proven safety data.</p>
-                    </div>
-
-                    <div class="glassmorphic-card">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="white">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                        <h3>Non Invasive & Drug Free</h3>
-                        <p>No needles, no anesthesia, no medication side effects. Exomind works by gently stimulating your brain's natural neural pathways.</p>
-                    </div>
-
-                    <div class="glassmorphic-card">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="white">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <h3>Under 30 Minutes</h3>
-                        <p>Each session takes less than 30 minutes. Walk in, sit comfortably, and walk out ready to continue your day with zero downtime.</p>
-                    </div>
-
-                    <div class="glassmorphic-card">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" color="white">
-                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                            <polyline points="17 6 23 6 23 12"></polyline>
-                        </svg>
-                        <h3>Lasting Neuroplasticity</h3>
-                        <p>ExoTMS™ promotes lasting changes in brain connectivity. 58% of patients maintain sustained remission at 12 months post treatment.</p>
-                    </div>
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow">The Science Behind Your Recovery</div>
+                    <h2>A Smarter Way to Treat <i>Depression</i></h2>
+                    <p>Exomind uses precisely targeted magnetic pulses to reactivate the parts of your brain most affected by depression — without medications, without sedation, and without downtime.</p>
                 </div>
 
-                <div style="text-align: center; margin-top: var(--spacing-2xl);">
-                    <button class="btn gold" onclick="scrollToSection('contact')">Schedule Your First Session</button>
+                <div class="benefits-grid">
+                    <div class="benefit-card reveal">
+                        <span class="num">01</span>
+                        <h3>Targeted Brain Stimulation</h3>
+                        <p>Magnetic pulses are aimed at the specific brain regions involved in mood regulation, not scattered across your whole system like medications.</p>
+                    </div>
+                    <div class="benefit-card reveal">
+                        <span class="num">02</span>
+                        <h3>Under 30 Minutes</h3>
+                        <p>Each Exomind session is under 30 minutes. Most patients fit treatment into a lunch break and drive themselves home after.</p>
+                    </div>
+                    <div class="benefit-card reveal">
+                        <span class="num">03</span>
+                        <h3>No Medication, No Anesthesia</h3>
+                        <p>Exomind is non-invasive and drug-free. You're fully awake, alert, and in control the entire time.</p>
+                    </div>
+                    <div class="benefit-card reveal">
+                        <span class="num">04</span>
+                        <h3>Results in 6 Visits (on average)</h3>
+                        <p>Most patients notice a shift within the first two weeks and complete their full course in an average of six in-office sessions.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Conditions -->
+        <section id="conditions">
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow">Conditions We Address</div>
+                    <h2>Exomind Is Clinically <i>Indicated For</i></h2>
+                    <p>Exomind TMS is FDA-cleared for Major Depressive Disorder and is a proven option when medications, talk therapy, or a combination have fallen short.</p>
+                </div>
+
+                <div class="conditions-grid">
+                    <div class="condition-card reveal">
+                        <img src="images/woman5.jpg" alt="Depression">
+                        <div class="condition-card-body">
+                            <span class="num">01</span>
+                            <h3>Major Depression (MDD)</h3>
+                            <p>FDA-cleared for adults with treatment-resistant depression who have not responded to antidepressant medications.</p>
+                        </div>
+                    </div>
+                    <div class="condition-card reveal">
+                        <img src="images/condition1.jpg" alt="Anxiety">
+                        <div class="condition-card-body">
+                            <span class="num">02</span>
+                            <h3>Anxiety With Depression</h3>
+                            <p>Targeted stimulation reduces both the low mood and the constant worry.</p>
+                        </div>
+                    </div>
+                    <div class="condition-card reveal">
+                        <img src="images/condition3.jpg" alt="OCD">
+                        <div class="condition-card-body">
+                            <span class="num">03</span>
+                            <h3>OCD</h3>
+                            <p>When SSRIs and exposure therapy aren't enough, Exomind offers a drug-free path forward.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="conditions-grid row-2">
+                    <div class="condition-card reveal">
+                        <img src="images/condition4.jpg" alt="Brain Fog">
+                        <div class="condition-card-body">
+                            <span class="num">04</span>
+                            <h3>Brain Fog &amp; Cognitive Fatigue</h3>
+                            <p>TMS stimulation of the prefrontal cortex can help restore focus and mental energy.</p>
+                        </div>
+                    </div>
+                    <div class="condition-card reveal">
+                        <img src="images/condition2.jpg" alt="Binge Eating">
+                        <div class="condition-card-body">
+                            <span class="num">05</span>
+                            <h3>Binge Eating</h3>
+                            <p>Exomind targets the impulse control circuits involved in compulsive eating behaviors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <div class="container">
+                <div class="cta-banner-inner">
+                    <h3>Ready to find out if you're a candidate?</h3>
+                    <a href="#doctor-contact" class="link-arrow" style="color: #fff; text-decoration-color: rgba(255,255,255,0.4);">Book Your Free Consult</a>
+                </div>
+            </div>
+        </div>
 
         <!-- How It Works -->
         <section id="how-it-works">
-            <div class="eyebrow">Your Treatment Journey</div>
-            <h2>How <i>Exomind</i> Works</h2>
-
-            <div class="steps-grid">
-                <div class="step-card fade-up">
-                    <div class="step-card-image"><img src="images/step1.jpg" alt="Brain Mapping"></div>
-                    <div class="step-card-body">
-                        <div class="step-number">1</div>
-                        <h3>Personalized Brain Mapping</h3>
-                        <p>Your provider maps your brain activity to identify the precise DLPFC coordinates for optimal stimulation.</p>
-                    </div>
+            <div class="container">
+                <div class="section-header">
+                    <div class="eyebrow">Your Experience</div>
+                    <h2>What to Expect From Your <i>Exomind Journey</i></h2>
+                    <p>We keep it simple. Three clear steps from "curious" to "feeling like yourself again."</p>
                 </div>
 
-                <div class="step-card fade-up">
-                    <div class="step-card-image"><img src="images/step2.jpg" alt="ExoTMS Stimulation"></div>
-                    <div class="step-card-body">
-                        <div class="step-number">2</div>
-                        <h3>Targeted ExoTMS™ Stimulation</h3>
-                        <p>Magnetic pulses are delivered to reawaken underactive neural circuits responsible for mood, focus, and emotional regulation.</p>
+                <div class="steps-grid">
+                    <div class="step-card reveal">
+                        <span class="num">01</span>
+                        <h3>Free Consultation &amp; Insurance Check</h3>
+                        <p>You speak with our team, we verify your benefits at no cost, and Dr. Muvva reviews your history to confirm Exomind is a fit. No pressure, no obligation.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <span class="num">02</span>
+                        <h3>Your Treatment Course</h3>
+                        <p>You come in for sessions under 30 minutes each. You stay awake, drive yourself home, and return to your day. Most patients complete treatment in roughly six visits.</p>
+                    </div>
+                    <div class="step-card reveal">
+                        <span class="num">03</span>
+                        <h3>Feeling Like Yourself</h3>
+                        <p>Most patients notice a shift within the first two weeks. By the end of the course, our team helps you plan a maintenance schedule to hold onto the progress.</p>
                     </div>
                 </div>
-
-                <div class="step-card fade-up">
-                    <div class="step-card-image"><img src="images/woman12.jpg" alt="Transformation"></div>
-                    <div class="step-card-body">
-                        <div class="step-number">3</div>
-                        <h3>Neuroplastic Transformation</h3>
-                        <p>Over a series of sessions, your brain forms new, healthier neural pathways through a process called neuroplasticity, leading to lasting relief.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: var(--spacing-2xl);">
-                <button class="btn" onclick="scrollToSection('contact')">Begin Your Transformation</button>
             </div>
         </section>
 
-        <!-- Conditions Treated -->
-        <section id="conditions">
-            <div class="eyebrow">Conditions We Treat</div>
-            <h2>Find Relief From <i>These Conditions</i></h2>
-
-            <div class="conditions-slider-wrapper">
-                <div class="conditions-slider" id="conditionsSlider">
-                    <div class="condition-card" data-index="0">
-                        <div class="condition-card-bg" style="background-image: url('images/woman5.jpg')"></div>
-                        <div class="condition-card-overlay"></div>
-                        <div class="condition-card-content">
-                            <h3>Depression</h3>
-                            <p>Regain hope and emotional resilience with targeted brain stimulation.</p>
-                        </div>
-                    </div>
-                    <div class="condition-card" data-index="1">
-                        <div class="condition-card-bg" style="background-image: url('images/condition1.jpg')"></div>
-                        <div class="condition-card-overlay"></div>
-                        <div class="condition-card-content">
-                            <h3>Anxiety</h3>
-                            <p>Calm your nervous system and reclaim peace of mind naturally.</p>
-                        </div>
-                    </div>
-                    <div class="condition-card" data-index="2">
-                        <div class="condition-card-bg" style="background-image: url('images/condition2.jpg')"></div>
-                        <div class="condition-card-overlay"></div>
-                        <div class="condition-card-content">
-                            <h3>OCD</h3>
-                            <p>Break free from obsessive thought patterns and compulsive behaviors.</p>
-                        </div>
-                    </div>
-                    <div class="condition-card" data-index="3">
-                        <div class="condition-card-bg" style="background-image: url('images/condition3.jpg')"></div>
-                        <div class="condition-card-overlay"></div>
-                        <div class="condition-card-content">
-                            <h3>Binge Eating</h3>
-                            <p>Restore healthy eating patterns and body image through neurostimulation.</p>
-                        </div>
-                    </div>
-                    <div class="condition-card" data-index="4">
-                        <div class="condition-card-bg" style="background-image: url('images/condition4.jpg')"></div>
-                        <div class="condition-card-overlay"></div>
-                        <div class="condition-card-content">
-                            <h3>Brain Fog</h3>
-                            <p>Sharpen mental clarity and boost cognitive function and focus.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slider-controls">
-                    <button class="slider-arrow prev" onclick="slideCondition(-1)">&#8249;</button>
-                    <div class="slider-nav" id="sliderNav">
-                        <button class="slider-dot active" data-index="0"></button>
-                        <button class="slider-dot" data-index="1"></button>
-                        <button class="slider-dot" data-index="2"></button>
-                        <button class="slider-dot" data-index="3"></button>
-                        <button class="slider-dot" data-index="4"></button>
-                    </div>
-                    <button class="slider-arrow next" onclick="slideCondition(1)">&#8250;</button>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: var(--spacing-2xl);">
-                <button class="btn" onclick="scrollToSection('contact')">See If You Qualify</button>
-            </div>
-        </section>
-
-        <!-- Video Section -->
+        <!-- Video -->
         <section id="video">
-            <div class="eyebrow">Hear From Real Patients</div>
-            <h2 class="white">See the <i>Exomind</i> Difference</h2>
-
-            <div class="video-container">
-                <video controls playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:inherit;object-fit:cover;">
-                    <source src="images/Exomind.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <div style="text-align: center; margin-top: var(--spacing-2xl);">
-                <button class="btn gold" onclick="scrollToSection('contact')">Book Your Consultation Today</button>
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <div class="eyebrow">Hear From Real Patients</div>
+                    <h2>See the <i>Exomind</i> Difference</h2>
+                </div>
+                <div class="video-container">
+                    <video controls playsinline preload="metadata">
+                        <source src="images/Exomind.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </section>
 
-        <!-- Reviews Section -->
+        <!-- Reviews -->
         <section id="reviews">
-            <div class="eyebrow">What Our Patients Say</div>
-            <h2>Real Reviews from <i>Real Patients</i></h2>
-
-            <div class="google-rating">
-                <div class="stars">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <span class="rating-text">4.7 out of 5 (77 reviews on Google)</span>
-            </div>
-
-            <div class="reviews-grid">
-                <div class="review-card fade-up">
-                    <div class="review-header">
-                        <div class="reviewer-avatar"><img src="https://lh3.googleusercontent.com/a/ACg8ocIoAN9-ip8JUsX_0TIt0hCQvTeArSFEUHVpfpbgyWok_F5XRg=w120-h120-p-rp-mo-ba3-br100" alt="Ashley Licata" referrerpolicy="no-referrer"></div>
-                        <div class="reviewer-name">Ashley L.</div>
-                    </div>
-                    <div class="review-stars">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                    </div>
-                    <p class="review-text">I am immediately at peace walking into the office. The entire staff is amazing. I feel very supported here. My treatment is going very well and I have made progress in just a short time.</p>
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <div class="eyebrow">What Our Patients Say</div>
+                    <h2>Real Reviews from <i>Real Patients</i></h2>
                 </div>
 
-                <div class="review-card fade-up">
-                    <div class="review-header">
-                        <div class="reviewer-avatar" style="background-color: var(--color-brand-primary);">A</div>
-                        <div class="reviewer-name">Aaron W.</div>
+                <div class="reviews-grid">
+                    <div class="review-card reveal">
+                        <div class="review-stars">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        </div>
+                        <p class="review-text">"I am immediately at peace walking into the office. The entire staff is amazing. I feel very supported here. My treatment is going very well and I have made progress in just a short time."</p>
+                        <div class="review-author">
+                            <div class="review-avatar"><img src="https://lh3.googleusercontent.com/a/ACg8ocIoAN9-ip8JUsX_0TIt0hCQvTeArSFEUHVpfpbgyWok_F5XRg=w120-h120-p-rp-mo-ba3-br100" alt="Ashley L." referrerpolicy="no-referrer"></div>
+                            <span class="review-name">Ashley L.</span>
+                        </div>
                     </div>
-                    <div class="review-stars">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                    </div>
-                    <p class="review-text">Doctor Muvva is Amazing. He really took the time to get to know me and build a treatment plan form fit to me and my needs. I am excited to continue with the team at WinMind Health.</p>
-                </div>
 
-                <div class="review-card fade-up">
-                    <div class="review-header">
-                        <div class="reviewer-avatar"><img src="https://lh3.googleusercontent.com/a-/ALV-UjWFQ_K5wi1wTKWj9KQOqINo2zHoR8KduMyYnJHwdj3Brvfy5FS2=w120-h120-p-rp-mo-br100" alt="Carlo Camacho" referrerpolicy="no-referrer"></div>
-                        <div class="reviewer-name">Carlo C.</div>
+                    <div class="review-card reveal">
+                        <div class="review-stars">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        </div>
+                        <p class="review-text">"Doctor Muvva is Amazing. He really took the time to get to know me and build a treatment plan form fit to me and my needs. I am excited to continue with the team at WinMind Health."</p>
+                        <div class="review-author">
+                            <div class="review-avatar" style="background: var(--clr-green-brand);">A</div>
+                            <span class="review-name">Aaron W.</span>
+                        </div>
                     </div>
-                    <div class="review-stars">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+
+                    <div class="review-card reveal">
+                        <div class="review-stars">
+                            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                        </div>
+                        <p class="review-text">"From the moment I walked in, the staff made my first visit feel very welcoming. Everyone was super friendly, easy to work with, and very attentive throughout the entire process."</p>
+                        <div class="review-author">
+                            <div class="review-avatar"><img src="https://lh3.googleusercontent.com/a-/ALV-UjWFQ_K5wi1wTKWj9KQOqINo2zHoR8KduMyYnJHwdj3Brvfy5FS2=w120-h120-p-rp-mo-br100" alt="Carlo C." referrerpolicy="no-referrer"></div>
+                            <span class="review-name">Carlo C.</span>
+                        </div>
                     </div>
-                    <p class="review-text">From the moment I walked in, the staff made my first visit feel very welcoming. Everyone was super friendly, easy to work with, and very attentive throughout the entire process. Dr. Muvva is clearly experienced and knows exactly how to work with you.</p>
-                </div>
-
-                <div class="review-card fade-up">
-                    <div class="review-header">
-                        <div class="reviewer-avatar" style="background-color: #0A5424;">L</div>
-                        <div class="reviewer-name">Lorraine B.</div>
-                    </div>
-                    <div class="review-stars">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                    </div>
-                    <p class="review-text">The staff is extremely polite and accommodating. Very nice! Margo the doctor was so pleasant and informative. She was excellent! So glad I found WinMind!</p>
-                </div>
-
-                <div class="review-card fade-up">
-                    <div class="review-header">
-                        <div class="reviewer-avatar"><img src="https://lh3.googleusercontent.com/a-/ALV-UjXlITSAllkuvw2mIXN2UFwL65w2AI60pMRZXzUca-tfIw7sXvq_NQ=w120-h120-p-rp-mo-br100" alt="Joe Peña" referrerpolicy="no-referrer"></div>
-                        <div class="reviewer-name">Joe P.</div>
-                    </div>
-                    <div class="review-stars">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                    </div>
-                    <p class="review-text">Dr Muvva is an excellent Dr. Patient, kind, knowledgeable in every way. He has helped my son Thomas tremendously. We appreciate him. His staff is always professional and willing to always help.</p>
-                </div>
-
-                <div class="review-card fade-up">
-                    <div class="review-header">
-                        <div class="reviewer-avatar" style="background-color: #2A8048;">B</div>
-                        <div class="reviewer-name">Bryan E.</div>
-                    </div>
-                    <div class="review-stars">
-                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                    </div>
-                    <p class="review-text">I recently started my journey with Winmind. The staff is very kind, courteous, and professional. Dr. Muvva has a great amount of insight and knowledge. He has great people skills as well. I highly recommend.</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: var(--spacing-2xl);">
-                <button class="btn" onclick="scrollToSection('contact')">Join Our Happy Patients</button>
-            </div>
-        </section>
-
-        <!-- Doctor Section -->
-        <section id="doctor">
-            <div class="eyebrow">Meet The Doctor</div>
-            <h2>Led by <i>Dr. Venkat G. Muvva</i></h2>
-
-            <div class="doctor-container" style="margin-top: var(--spacing-2xl);">
-                <div class="doctor-image"><img src="images/doctor.jpg" alt="Dr. Venkat G. Muvva"></div>
-                <div class="doctor-bio">
-                    <h3>Venkat G. Muvva, MD</h3>
-                    <p class="doctor-title">Multi Board Certified Physician | Medical Director</p>
-                    <p>Dr. Muvva is a multi board certified physician and Medical Director at WinMind Integrative Health, where he integrates traditional medicine with advanced wellness therapies to support longevity, resilience, and optimized performance. His clinical focus includes Exomind brain wellness therapy, BioTE hormone optimization, and physician led oversight of IV nutrition services.</p>
-                    <p>As an Assistant Professor at the University of South Florida Morsani College of Medicine, Dr. Muvva brings academic rigor and the latest research to every patient interaction. At WinMind, he emphasizes listening deeply, understanding each patient's unique story, and developing personalized care plans that address both mind and body.</p>
-
-                </div>
-            </div>
-
-            <div class="credentials-box">
-                <p class="credentials-title">Credentials</p>
-                <div class="credential-item">
-                    <span class="credential-check">✓</span>
-                    <span>Board Certified in Addiction Medicine (FASAM)</span>
-                </div>
-                <div class="credential-item">
-                    <span class="credential-check">✓</span>
-                    <span>Hospice and Palliative Medicine (HMDC)</span>
-                </div>
-                <div class="credential-item">
-                    <span class="credential-check">✓</span>
-                    <span>Board Certified in Family Medicine</span>
-                </div>
-                <div class="credential-item">
-                    <span class="credential-check">✓</span>
-                    <span>Master of Public Administration (MPA)</span>
-                </div>
-                <div class="credential-item">
-                    <span class="credential-check">✓</span>
-                    <span>USF Morsani College of Medicine Faculty</span>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <div class="eyebrow" style="color: rgba(255,255,255,0.85); text-align: center;">Ready to Start Your Journey?</div>
-            <h2 style="text-align: center; color: #FFFFFF;">Book Your <i>Free Consultation</i></h2>
+        <!-- CTA Banner 2 -->
+        <div class="cta-banner">
+            <div class="container">
+                <div class="cta-banner-inner">
+                    <h3>Hear from more patients on your consult call.</h3>
+                    <a href="#doctor-contact" class="link-arrow" style="color: #fff; text-decoration-color: rgba(255,255,255,0.4);">Book Your Free Consult</a>
+                </div>
+            </div>
+        </div>
 
-            <div class="contact-container">
-                <div class="contact-layout">
-                    <div class="contact-info">
-                        <div class="contact-info-item">
-                            <h4>Address</h4>
-                            <p>2943 Allegra Wy<br>Lutz, FL 33559</p>
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-header section-header--center">
+                    <div class="eyebrow">Common Questions</div>
+                    <h2>Questions Patients Ask Before <i>Their First Visit</i></h2>
+                    <p>Short answers to the questions we hear most often. If you want a longer conversation, book a free consult — that's what it's for.</p>
+                </div>
+
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><span class="faq-num">01</span> Is Exomind covered by insurance?</span>
+                            <span class="faq-toggle">&#8964;</span>
+                        </button>
+                        <div class="faq-answer"><p>Insurance coverage for Exomind varies by provider. Some insurers are beginning to cover advanced TMS treatments, while others may require out-of-pocket payment. Our team will help you navigate your insurance options during your consultation.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><span class="faq-num">02</span> How much does Exomind cost?</span>
+                            <span class="faq-toggle">&#8964;</span>
+                        </button>
+                        <div class="faq-answer"><p>The cost of a full Exomind treatment course typically ranges from $3,600 to $5,000. During your free consultation, we will discuss pricing options and create a plan that works for your budget.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><span class="faq-num">03</span> How many sessions will I need?</span>
+                            <span class="faq-toggle">&#8964;</span>
+                        </button>
+                        <div class="faq-answer"><p>A typical Exomind treatment course consists of 6 weekly sessions, each lasting under 30 minutes. Some patients begin noticing improvements after just a few sessions.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><span class="faq-num">04</span> Is it safe? Are there side effects?</span>
+                            <span class="faq-toggle">&#8964;</span>
+                        </button>
+                        <div class="faq-answer"><p>Yes. Exomind has one of the strongest safety profiles of any treatment in modern psychiatry. It is FDA cleared and has been studied in rigorous clinical trials. The most common side effect is mild scalp discomfort that typically resolves within minutes.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><span class="faq-num">05</span> How soon will I see results?</span>
+                            <span class="faq-toggle">&#8964;</span>
+                        </button>
+                        <div class="faq-answer"><p>Many patients report feeling improvements within the first few weeks of treatment. Clinical data shows that 58% of patients achieve sustained remission at 12 months.</p></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFAQ(this)">
+                            <span><span class="faq-num">06</span> Do I have to stop my current medications?</span>
+                            <span class="faq-toggle">&#8964;</span>
+                        </button>
+                        <div class="faq-answer"><p>No. Exomind can be used alongside most medications. Dr. Muvva will review your current treatment plan during your consultation and advise on the best approach for your individual situation.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Big CTA -->
+        <section id="big-cta">
+            <div class="container">
+                <div class="eyebrow">The Next Step</div>
+                <h2 style="color: var(--clr-text-inverse);">Ready to See if You're a <i>Candidate</i>?</h2>
+                <p>A free consultation is the fastest way to find out. We verify your insurance, Dr. Muvva reviews your history, and you decide from there. No pressure, no obligation.</p>
+                <div class="btn-cta-row">
+                    <button class="btn btn-white-outline" onclick="scrollToSection('doctor-contact')">Book Your Free Consultation</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctor + Contact Form -->
+        <section id="doctor-contact">
+            <div class="container">
+                <div class="doctor-form-layout">
+                    <div class="doctor-side">
+                        <div class="eyebrow">Meet Your Doctor</div>
+                        <h2>Dr. Venkat G. Muvva, <i>MD</i></h2>
+
+                        <div class="doctor-photo">
+                            <img src="images/doctor.jpg" alt="Dr. Venkat G. Muvva">
                         </div>
-                        <div class="contact-info-item">
-                            <h4>Phone</h4>
-                            <a href="tel:(813) 934-2953">(813) 934-2953</a>
+
+                        <div class="doctor-credentials">
+                            <div class="credential-item"><span class="credential-dot"></span> Board Certified in Addiction Medicine (FASAM)</div>
+                            <div class="credential-item"><span class="credential-dot"></span> Hospice and Palliative Medicine (HMDC)</div>
+                            <div class="credential-item"><span class="credential-dot"></span> Board Certified in Family Medicine</div>
+                            <div class="credential-item"><span class="credential-dot"></span> USF Morsani College of Medicine Faculty</div>
+                            <div class="credential-item"><span class="credential-dot"></span> Certified Exomind TMS Provider</div>
                         </div>
-                        <div class="contact-info-item">
-                            <h4>Email</h4>
+
+                        <p class="doctor-bio-text">Dr. Muvva has spent his career helping patients who've tried "everything" and still aren't feeling like themselves. He's a quiet, thoughtful clinician who takes the time to understand the full picture before making a recommendation.</p>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Book Your Free Consultation</h3>
+                        <p class="contact-subtitle">No obligation. We'll call within one business hour to verify your insurance and schedule your visit.</p>
+
+                        <form onsubmit="submitContact(event)">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label>First Name</label>
+                                    <input type="text" name="first_name" placeholder="First name" required>
+                                </div>
+                                <div class="form-field">
+                                    <label>Last Name</label>
+                                    <input type="text" name="last_name" placeholder="Last name" required>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Phone</label>
+                                <input type="tel" name="phone" placeholder="(___) ___-____" required>
+                            </div>
+                            <div class="form-field">
+                                <label>What's on your mind? <span style="color: var(--clr-text-muted); font-weight: 400;">(optional)</span></label>
+                                <textarea name="message" placeholder="Tell us about your concerns..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-green" style="width: 100%; padding: var(--sp-16);">Request My Consultation →</button>
+                            <p class="privacy-note">By submitting you agree to our <a href="#">Privacy Policy</a>. We respect your privacy and never sell your information.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info + Map -->
+        <section id="contact-info">
+            <div class="container">
+                <div style="border-top: 1px solid var(--clr-border); padding-top: var(--sp-48); margin-top: var(--sp-16);"></div>
+                <div class="contact-info-layout">
+                    <div class="info-column">
+                        <div class="info-item">
+                            <div class="eyebrow">Address</div>
+                            <p>2943 Allegra Way<br>Lutz, FL 33559</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="eyebrow">Phone</div>
+                            <a href="tel:(813) 934-2953"><strong>(813) 934-2953</strong></a>
+                        </div>
+                        <div class="info-item">
+                            <div class="eyebrow">Email</div>
                             <a href="mailto:frontdesk@winmindhealth.com">frontdesk@winmindhealth.com</a>
                         </div>
-                        <div class="contact-info-item">
-                            <h4>Office Hours</h4>
-                            <p>Monday – Friday: 9:00 AM – 5:00 PM<br>Saturday: By Appointment<br>Sunday: Closed</p>
+                        <div class="info-item">
+                            <div class="eyebrow">Hours</div>
+                            <p>Mon–Fri 9 AM – 5 PM · Sat by appointment</p>
                         </div>
                     </div>
-
-                    <form class="contact-form" onsubmit="submitContact(event)">
-                        <div class="form-row">
-                            <div class="form-field">
-                                <input type="text" name="firstName" placeholder="First Name" required>
-                            </div>
-                            <div class="form-field">
-                                <input type="text" name="lastName" placeholder="Last Name" required>
-                            </div>
-                        </div>
-                        <div class="form-field">
-                            <input type="email" name="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-field">
-                            <input type="tel" name="phone" placeholder="Phone Number" required>
-                        </div>
-                        <div class="form-field">
-                            <textarea name="message" placeholder="Tell us about your concerns (optional)"></textarea>
-                        </div>
-                        <div style="text-align: center; margin-top: var(--spacing-lg);">
-                            <button type="submit" class="btn">Send My Request</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="contact-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3514.8!2d-82.400278!3d28.1988283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2bb297e6b41f1%3A0x1fac797880dc57df!2sWinMind%20Health!5e0!3m2!1sen!2sus!4v1712600000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq">
-            <div class="eyebrow">Frequently Asked Questions</div>
-            <h2>Everything You Need to <i>Know</i></h2>
-
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Does Exomind hurt?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>No. Most patients describe the sensation as a gentle tapping on the scalp. The treatment is completely painless, with no anesthesia or sedation required. You can read, relax, or even use your phone during your session.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How much does Exomind cost?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The cost of a full Exomind treatment course typically ranges from $3,600 to $5,000. During your free consultation, we will discuss pricing options and create a plan that works for your budget.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Is Exomind covered by insurance?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Insurance coverage for Exomind varies by provider. Some insurers are beginning to cover advanced TMS treatments, while others may require out of pocket payment. Our team will help you navigate your insurance options during your consultation.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>Is Exomind safe?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. Exomind has one of the strongest safety profiles of any treatment in modern psychiatry. It is FDA cleared and has been studied in rigorous clinical trials. The most common side effect is mild scalp discomfort that typically resolves within minutes.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How many sessions will I need?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>A typical Exomind treatment course consists of 6 weekly sessions, each lasting under 30 minutes. Some patients begin noticing improvements after just a few sessions. Your provider will create a personalized treatment plan based on your specific needs.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>What conditions does Exomind treat?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Exomind is FDA cleared for the treatment of Major Depressive Disorder. It is also used as an adjunctive wellness approach for anxiety, OCD, binge eating, brain fog, and stress related conditions.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFAQ(this)">
-                        <span>How soon will I see results?</span>
-                        <span class="faq-toggle">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Many patients report feeling improvements within the first few weeks of treatment. Clinical data shows that 58% of patients achieve sustained remission at 12 months, demonstrating the long lasting neuroplastic benefits of Exomind.</p>
+                    <div class="contact-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3514.8!2d-82.400278!3d28.1988283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2bb297e6b41f1%3A0x1fac797880dc57df!2sWinMind%20Health!5e0!3m2!1sen!2sus!4v1712600000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -2135,240 +1439,109 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">
-                    <span class="footer-logo-name">WinMind<br>Integrative Wellness</span>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="WinMind Integrative Wellness">
+                    </div>
+                    <p class="footer-address">
+                        2943 Allegra Way<br>Lutz, FL 33559
+                    </p>
+                    <p class="footer-address"><a href="tel:(813) 934-2953">(813) 934-2953</a></p>
+                    <p class="footer-address"><a href="mailto:frontdesk@winmindhealth.com">frontdesk@winmindhealth.com</a></p>
                 </div>
-                <div class="footer-social-links">
-                    <a href="https://www.facebook.com/WinMindHealth" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="https://www.instagram.com/winmindhealth" target="_blank" rel="noopener" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
-                    <a href="https://x.com/WinMindHealth" target="_blank" rel="noopener" aria-label="X (Twitter)">
-                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/channel/UC-3mP65PPg0PJovLSyuPWSQ" target="_blank" rel="noopener" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
+                <div>
+                    <p class="footer-section-title">Resources</p>
+                    <div class="footer-links">
+                        <a href="#what-is">About Exomind</a>
+                        <a href="#conditions">Conditions We Treat</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#doctor-contact">Book Consultation</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="footer-section-title">Hours</p>
+                    <div class="footer-hours">
+                        <p>Mon–Fri · 9:00 AM – 5:00 PM</p>
+                        <p>Sat · By Appointment</p>
+                        <p>Sun · Closed</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="footer-section">
-                <h4>Contact</h4>
-                <p>2943 Allegra Wy<br>Lutz, FL 33559</p>
-                <a href="tel:(813) 934-2953">(813) 934-2953</a>
-                <a href="mailto:frontdesk@winmindhealth.com">frontdesk@winmindhealth.com</a>
+            <div class="footer-bottom">
+                <p class="footer-legal">FDA-cleared for the treatment of Major Depressive Disorder in adults who have not received satisfactory improvement from prior antidepressant medication. Individual results may vary. For adults ages 22 and older. Your protected health information is handled in accordance with HIPAA. Information submitted through this site is transmitted securely. This website is not a substitute for a medical diagnosis or professional mental health care.</p>
+                <p class="footer-copyright">&copy; WinMind Integrative Health 2026. All rights reserved.</p>
             </div>
-
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#what-is">About Exomind</a>
-                <a href="#conditions">Conditions We Treat</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Book Consultation</a>
-            </div>
-        </div>
-
-        <div class="footer-bottom-logo">
-            <img src="images/logo.png" alt="WinMind">
-        </div>
-        <div class="footer-copyright">
-            © 2026 WinMind Integrative Health. All rights reserved.
         </div>
     </footer>
 
     <script>
-        // Smooth Scroll
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
+        // Nav scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Quiz Functionality
+        // Quiz
         let currentQuizStep = 0;
+        const quizDots = document.querySelectorAll('.quiz-dot');
 
-        function updateQuizProgress() {
-            const progress = ((currentQuizStep + 1) / 3) * 100;
-            document.querySelector('.progress-fill').style.width = progress + '%';
+        function updateDots() {
+            quizDots.forEach((d, i) => d.classList.toggle('active', i <= currentQuizStep));
         }
 
         function showQuizStep(step) {
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
             const steps = document.querySelectorAll('.quiz-step');
-            steps.forEach(s => s.classList.remove('active'));
-            if (steps[step]) {
-                steps[step].classList.add('active');
-            }
-            updateQuizProgress();
+            if (steps[step]) steps[step].classList.add('active');
+            updateDots();
         }
 
         function nextQuizStep() {
-            const currentStep = document.querySelector('.quiz-step.active');
-            const inputs = currentStep.querySelectorAll('input[type="radio"], input[type="text"], input[type="email"], input[type="tel"]');
-            let isValid = false;
-
-            inputs.forEach(input => {
-                if (input.type === 'radio') {
-                    if (document.querySelector(`input[name="${input.name}"]:checked`)) {
-                        isValid = true;
-                    }
-                } else if (input.value) {
-                    isValid = true;
-                }
-            });
-
-            if (isValid || currentQuizStep === 0) {
-                currentQuizStep++;
-                if (currentQuizStep < 3) {
-                    showQuizStep(currentQuizStep);
-                }
-            } else {
-                alert('Please complete this step before continuing');
-            }
+            currentQuizStep++;
+            if (currentQuizStep < 3) showQuizStep(currentQuizStep);
         }
 
         function prevQuizStep() {
-            if (currentQuizStep > 0) {
-                currentQuizStep--;
-                showQuizStep(currentQuizStep);
-            }
+            if (currentQuizStep > 0) { currentQuizStep--; showQuizStep(currentQuizStep); }
         }
 
         function showQuizResult() {
-            const steps = document.querySelectorAll('.quiz-step');
-            steps.forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.quiz-step').forEach(s => s.classList.remove('active'));
             document.getElementById('quizResult').classList.add('active');
-            document.querySelector('.progress-fill').style.width = '100%';
+            quizDots.forEach(d => d.classList.add('active'));
         }
 
         // Contact Form
-        function submitContact(event) {
-            event.preventDefault();
-            alert('Thank you for your interest! We will contact you soon to schedule your free consultation.');
-            event.target.reset();
+        function submitContact(e) {
+            e.preventDefault();
+            alert('Thank you! We will contact you within one business hour to verify your insurance and schedule your visit.');
+            e.target.reset();
         }
 
-        // FAQ Accordion
-        function toggleFAQ(button) {
-            const item = button.parentElement;
-            item.classList.toggle('active');
-        }
+        // FAQ
+        function toggleFAQ(btn) { btn.parentElement.classList.toggle('active'); }
 
-        // Option Card Selection
-        document.addEventListener('DOMContentLoaded', function() {
-            const optionCards = document.querySelectorAll('.option-card');
-
-            optionCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    const input = this.querySelector('input[type="radio"]');
-                    const groupName = input.name;
-
-                    document.querySelectorAll(`input[name="${groupName}"]`).forEach(radio => {
-                        radio.parentElement.classList.remove('selected');
-                    });
-
-                    this.classList.add('selected');
-                    input.checked = true;
-                });
+        // Option Cards
+        document.querySelectorAll('.option-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const input = this.querySelector('input[type="radio"]');
+                document.querySelectorAll(`input[name="${input.name}"]`).forEach(r => r.parentElement.classList.remove('selected'));
+                this.classList.add('selected');
+                input.checked = true;
             });
         });
 
-        // Intersection Observer for Fade Up Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Conditions Slider - Infinite (no DOM cloning)
-        let currentSlide = 0;
-        const slider = document.getElementById('conditionsSlider');
-        const cards = Array.from(slider.querySelectorAll('.condition-card'));
-        const dots = document.querySelectorAll('.slider-dot');
-        const totalSlides = cards.length;
-        let isAnimating = false;
-
-        function updateSlider(index, smooth) {
-            if (smooth === undefined) smooth = true;
-            currentSlide = ((index % totalSlides) + totalSlides) % totalSlides;
-
-            cards.forEach((card, i) => {
-                card.classList.toggle('active', i === currentSlide);
-            });
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-
-            // Re-order cards in DOM so active is always centered with neighbors visible
-            const order = [];
-            for (let i = -2; i <= 2; i++) {
-                order.push(((currentSlide + i) % totalSlides + totalSlides) % totalSlides);
-            }
-
-            // Use CSS order to visually rearrange
-            cards.forEach((card, i) => {
-                const pos = order.indexOf(i);
-                card.style.order = pos !== -1 ? pos : 10;
-            });
-
-            // Scroll to center the active card
-            requestAnimationFrame(() => {
-                const activeCard = cards[currentSlide];
-                const sliderRect = slider.getBoundingClientRect();
-                const scrollLeft = activeCard.offsetLeft - (sliderRect.width / 2) + (activeCard.offsetWidth / 2);
-                slider.scrollTo({ left: scrollLeft, behavior: smooth ? 'smooth' : 'instant' });
-            });
-        }
-
-        function slideCondition(direction) {
-            if (isAnimating) return;
-            isAnimating = true;
-            updateSlider(currentSlide + direction);
-            setTimeout(() => { isAnimating = false; }, 500);
-        }
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                updateSlider(parseInt(dot.dataset.index));
-            });
-        });
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                updateSlider(parseInt(card.dataset.index));
-            });
-        });
-
-        // Touch/swipe support
-        let touchStartX = 0;
-        slider.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-        }, { passive: true });
-        slider.addEventListener('touchend', (e) => {
-            const diff = touchStartX - e.changedTouches[0].clientX;
-            if (Math.abs(diff) > 50) {
-                slideCondition(diff > 0 ? 1 : -1);
-            }
-        }, { passive: true });
-
-        // Initialize
-        updateSlider(0, false);
+        // Reveal on scroll
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
 </body>
 </html>

@@ -6,6 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Exomind TMS Therapy in Lutz, FL | WinMind Integrative Health</title>
 <meta name="description" content="FDA cleared Exomind TMS therapy at WinMind Integrative Health in Lutz, FL. Noninvasive brain stimulation for depression relief. Six sessions, no medication, no downtime.">
+
+<!-- Search engine directive: keep this landing page out of the index (kept crawlable so the noindex is seen) -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta name="theme-color" content="#003C17">
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="apple-touch-icon" href="images/logo.png">
+
+<!-- Open Graph (link previews when shared) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WinMind Integrative Health">
+<meta property="og:title" content="Exomind TMS Therapy in Lutz, FL | WinMind Integrative Health">
+<meta property="og:description" content="FDA cleared Exomind TMS therapy at WinMind Integrative Health in Lutz, FL. Noninvasive brain stimulation for depression relief. Six sessions, no medication, no downtime.">
+<meta property="og:url" content="https://winmind-exomind-lp.vercel.app/">
+<meta property="og:image" content="https://winmind-exomind-lp.vercel.app/images/device7.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Exomind TMS Therapy in Lutz, FL | WinMind Integrative Health">
+<meta name="twitter:description" content="FDA cleared Exomind TMS therapy at WinMind Integrative Health in Lutz, FL. Noninvasive brain stimulation for depression relief. Six sessions, no medication, no downtime.">
+<meta name="twitter:image" content="https://winmind-exomind-lp.vercel.app/images/device7.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@400;600;700;900&family=Inter+Tight:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -30,6 +51,7 @@
     --text-tertiary: rgba(0, 60, 23, 0.50);
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Lato', system-ui, sans-serif;
+    --content-max: 1280px; /* shared foreground max-width; section backgrounds stay full-bleed */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -190,7 +212,7 @@
   .stat-label { font-size: 11px; font-weight: 900; letter-spacing: 0.22em; color: var(--text-inverse-muted); text-transform: uppercase; }
 
   /* ====== QUIZ ====== */
-  .quiz { background: var(--cream-page); padding: 80px 64px; display: flex; gap: 64px; align-items: stretch; min-height: 640px; }
+  .quiz { background: var(--cream-page); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; gap: 64px; align-items: stretch; min-height: 640px; }
   .quiz-left { width: 440px; display: flex; flex-direction: column; justify-content: center; gap: 24px; }
   .quiz-left h2 { font-family: var(--font-display); font-size: 56px; line-height: 0.98; color: var(--text-primary); }
   .quiz-left p { font-size: 16px; line-height: 1.55; color: var(--text-secondary); }
@@ -225,7 +247,7 @@
   .back-link { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: var(--text-inverse-muted); }
 
   /* ====== WHAT IS EXOMIND ====== */
-  .whatis { background: var(--cream-page); padding: 80px 64px; display: flex; gap: 40px; align-items: stretch; min-height: 600px; }
+  .whatis { background: var(--cream-page); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; gap: 40px; align-items: stretch; min-height: 600px; }
   .img-cluster { position: relative; flex: 1; height: 440px; max-width: 720px; }
   .img-cluster .main { position: absolute; left: 0; top: 0; width: 420px; height: 440px; overflow: hidden; }
   .img-cluster .main img { width: 100%; height: 100%; object-fit: cover; }
@@ -277,7 +299,7 @@
   .whatis-link .arrow { color: var(--brand-green); }
 
   /* ====== CONDITIONS ====== */
-  .conditions { background: var(--cream-page); padding: 80px 64px; display: flex; flex-direction: column; gap: 48px; min-height: 660px; }
+  .conditions { background: var(--cream-page); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; flex-direction: column; gap: 48px; min-height: 660px; }
   .cond-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
   .cond-head-left { width: 780px; display: flex; flex-direction: column; gap: 14px; }
   .cond-head h2 { font-family: var(--font-display); font-size: 54px; line-height: 0.98; color: var(--text-primary); }
@@ -319,7 +341,7 @@
   .step-desc { font-size: 16px; line-height: 1.55; color: var(--text-secondary); }
 
   /* ====== REVIEWS ====== */
-  .reviews { background: var(--cream-page); padding: 80px 64px; display: flex; flex-direction: column; gap: 40px; min-height: 560px; }
+  .reviews { background: var(--cream-page); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; flex-direction: column; gap: 40px; min-height: 560px; }
   .rev-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
   .rev-head-left { width: 720px; display: flex; flex-direction: column; gap: 16px; }
   .rev-head h2 { font-family: var(--font-display); font-size: 46px; line-height: 1.05; color: var(--text-primary); }
@@ -367,7 +389,7 @@
         rgba(0, 60, 23, 0.10) 50%,
         rgba(0, 60, 23, 0.35) 100%);
   }
-  .video-inner { position: relative; padding: 80px 64px; display: flex; align-items: center; justify-content: flex-start; height: 100%; gap: 48px; }
+  .video-inner { position: relative; padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; align-items: center; justify-content: flex-start; height: 100%; gap: 48px; }
   .video-copy { display: flex; flex-direction: column; gap: 20px; width: 30%; flex-shrink: 0; }
   .video-copy h2 { font-family: var(--font-display); font-size: 48px; line-height: 1.02; color: var(--text-inverse); }
   .video-copy p { font-size: 17px; line-height: 1.55; color: var(--text-inverse-muted); }
@@ -391,7 +413,7 @@
   .video-cta-actions { display: flex; gap: 14px; align-items: center; padding-top: 8px; }
 
   /* ====== WHY WINMIND ====== */
-  .why { background: var(--cream-page); padding: 80px 64px; display: flex; gap: 48px; min-height: 660px; align-items: stretch; }
+  .why { background: var(--cream-page); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; gap: 48px; min-height: 660px; align-items: stretch; }
   .why-collage {
     width: 520px; flex-shrink: 0; display: grid;
     grid-template-columns: 1.6fr 1fr;
@@ -429,7 +451,7 @@
   .why-actions .phone-note { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: var(--brand-green); }
 
   /* ====== CONTACT ====== */
-  .contact { background: var(--cream-page); padding: 80px 64px; display: flex; gap: 64px; min-height: 420px; align-items: flex-start; }
+  .contact { background: var(--cream-page); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; gap: 64px; min-height: 420px; align-items: flex-start; }
   .contact-form { width: 840px; background: var(--surface-sand); border: 1px solid var(--border-default); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
   .contact-form h2 { font-family: var(--font-display); font-size: 40px; line-height: 1.05; color: var(--text-primary); }
   .form-row { display: flex; gap: 16px; }
@@ -471,7 +493,7 @@
   .map-frame { position: absolute; inset: 0; }
   .map-frame iframe { width: 100%; height: 100%; border: 0; filter: saturate(0.92) contrast(0.96); }
   .map-card {
-    position: absolute; right: 64px; top: 64px; width: 480px; height: 352px;
+    position: absolute; right: max(64px, calc((100% - var(--content-max)) / 2)); top: 64px; width: 480px; height: 352px;
     background: var(--cream-page); border: 1px solid var(--border-default);
     padding: 36px; display: flex; flex-direction: column; gap: 18px;
   }
@@ -484,7 +506,7 @@
   .map-card .btn { padding: 14px 24px; align-self: flex-start; }
 
   /* ====== FAQ ====== */
-  .faq { background: var(--surface-sand); padding: 80px 64px; display: flex; flex-direction: column; gap: 36px; min-height: 680px; }
+  .faq { background: var(--surface-sand); padding: 80px max(64px, calc((100% - var(--content-max)) / 2)); display: flex; flex-direction: column; gap: 36px; min-height: 680px; }
   .faq-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
   .faq-head-left { width: 780px; display: flex; flex-direction: column; gap: 14px; }
   .faq-head h2 { font-family: var(--font-display); font-size: 54px; line-height: 1; color: var(--text-primary); }
@@ -498,7 +520,7 @@
   .faq-item-a { font-size: 16px; line-height: 1.6; color: var(--text-secondary); }
 
   /* ====== FOOTER ====== */
-  footer.footer { background: var(--forest-deep); padding: 64px 64px 32px; display: flex; flex-direction: column; gap: 40px; }
+  footer.footer { background: var(--forest-deep); padding: 64px max(64px, calc((100% - var(--content-max)) / 2)) 32px; display: flex; flex-direction: column; gap: 40px; }
   .foot-top { display: flex; justify-content: space-between; gap: 48px; }
   .foot-brand { width: 420px; display: flex; flex-direction: column; gap: 20px; }
   .foot-brand img { height: 68px; width: 240px; object-fit: contain; object-position: left center; filter: brightness(0) invert(1); transition: filter 0.4s ease; cursor: pointer; }
@@ -1391,7 +1413,7 @@
                       background:linear-gradient(0deg, #040504 20.54%, rgba(29,37,9,0) 100%);"></div>
 
           <!-- Headline (rotating, 4 slides) -->
-          <h3 id="story-headline" class="story-headline" style="position: absolute; left: 24px; right: 24px; bottom: 84px; z-index: 10; color: rgb(255, 255, 255); font-size: 34px; line-height: 36px; letter-spacing: -0.5px; text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 18px; margin: 0px;"><span class="font-heading" style="font-weight:700;">Quiet</span><br><span class="font-serif" style="font-style:italic;font-weight:400;">confidence</span></h3>
+          <div id="story-headline" class="story-headline" style="position: absolute; left: 24px; right: 24px; bottom: 84px; z-index: 10; color: rgb(255, 255, 255); font-size: 34px; line-height: 36px; letter-spacing: -0.5px; text-shadow: rgba(0, 0, 0, 0.35) 0px 2px 18px; margin: 0px;"><span class="font-heading" style="font-weight:700;">Quiet</span><br><span class="font-serif" style="font-style:italic;font-weight:400;">confidence</span></div>
 
           <!-- Bottom action row — heart + message icons (interactive) -->
           <div style="position:absolute;left:24px;right:24px;bottom:24px;display:flex;align-items:center;gap:10px;z-index:10;">
